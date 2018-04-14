@@ -146,32 +146,32 @@ def dataSetGen(fillMwithSMTuple, addNoiseTuple, dataQuantity,
         matrices, gives them an individual name and then saves them as images
         or text files in a specified location.
 
-    Parameters
-    ----------
-    fillMwithSMTuple : tuple
-        A tuple containing all the parameters of the fillMwithSM function.
-        They are (colM, rowM, colSM, rowSM)
-    addNoiseTuple : tuple
-        A tuple containing all the parameters of the addNoise function excpet
-        for the matrix parameter as that one is given by the fillMwithSMTuple.
-        They are (noiseDensity, modifiedLocations, noiseType)
-    dataQuantity : int
-        An integer > 0 representing the amount of elements in the dataset.
-    fileType : string
-        A string representing the desired datatype of the created file(s)
-        Available options are:
-            "csv" - stores the data in csv tables
-            "jpg" - stores the data in jpg images
-            "png" - stores the data in png images
-    path : string
-        The path of the folder for the generated file(s) to be saved in.
-    namingScheme : string
-        A name given to the file(s).
+        Parameters
+        ----------
+        fillMwithSMTuple : tuple
+            A tuple containing all the parameters of the fillMwithSM function.
+            They are (colM, rowM, colSM, rowSM)
+        addNoiseTuple : tuple
+            A tuple containing all the parameters of the addNoise function excpet
+            for the matrix parameter as that one is given by the fillMwithSMTuple.
+            They are (noiseDensity, modifiedLocations, noiseType)
+        dataQuantity : int
+            An integer > 0 representing the amount of elements in the dataset.
+        fileType : string
+            A string representing the desired datatype of the created file(s)
+            Available options are:
+                "csv" - stores the data in csv tables
+                "jpg" - stores the data in jpg images
+                "png" - stores the data in png images
+        path : string
+            The path of the folder for the generated file(s) to be saved in.
+        namingScheme : string
+            A name given to the file(s).
 
-    Returns
-    -------
-    None
-        The function returns None, but creates the desired outputs.
+        Returns
+        -------
+        None
+            The function returns None, but creates the desired outputs.
     """
 
     for i in range(dataQuantity):
@@ -199,34 +199,34 @@ def dataFileGen(fillMwithSMTuple, addNoiseTuple, dataQuantity,
         then allows to save that big matrix in a csv table, npy file or return
         it as an output of the function.
 
-    Parameters
-    ----------
-    fillMwithSMTuple : tuple
-        A tuple containing all the parameters of the fillMwithSM function.
-        They are (colM, rowM, colSM, rowSM)
-    addNoiseTuple : tuple
-        A tuple containing all the parameters of the addNoise function excpet
-        for the matrix parameter as that one is given by the fillMwithSMTuple.
-        They are (noiseDensity, modifiedLocations, noiseType)
-    dataQuantity : int
-        An integer > 0 representing the amount of elements in the dataset.
-    fileType : string
-        A string representing the desired datatype of the created file(s)
-        Available options are:
-            "csv" - stores the data in a csv table
-            "npy" - stores the data in a npy file
-            "variable" - returns the function as variable of type numpy.ndarray
-    path : string
-        The path of the folder for the generated file(s) to be saved in.
-    namingScheme : string
-        A name given to the file.
+        Parameters
+        ----------
+        fillMwithSMTuple : tuple
+            A tuple containing all the parameters of the fillMwithSM function.
+            They are (colM, rowM, colSM, rowSM)
+        addNoiseTuple : tuple
+            A tuple containing all the parameters of the addNoise function excpet
+            for the matrix parameter as that one is given by the fillMwithSMTuple.
+            They are (noiseDensity, modifiedLocations, noiseType)
+        dataQuantity : int
+            An integer > 0 representing the amount of elements in the dataset.
+        fileType : string
+            A string representing the desired datatype of the created file(s)
+            Available options are:
+                "csv" - stores the data in a csv table
+                "npy" - stores the data in a npy file
+                "variable" - returns the function as variable of type numpy.ndarray
+        path : string
+            The path of the folder for the generated file(s) to be saved in.
+        namingScheme : string
+            A name given to the file.
 
-    Returns
-    -------
-    numpy.ndarray | None
-        The return of the function depends on the fileType. The function
-        returns None if filetype is csv or npy and returns a matrix of type
-        numpy.ndarray if the filetype is a variable.
+        Returns
+        -------
+        numpy.ndarray | None
+            The return of the function depends on the fileType. The function
+            returns None if filetype is csv or npy and returns a matrix of type
+            numpy.ndarray if the filetype is a variable.
 
     """
 
