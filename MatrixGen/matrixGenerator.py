@@ -53,6 +53,9 @@ class Matrix:
             return self.content
 
 
+class EmptyMatrix(Matrix):
+    pass
+
 class FeatureMatrix(Matrix):
         def fillMatrixWithSubmatrix(self, columnSubmatrix, rowSubmatrix):
             """ The function generates two matrices, namely the matrix M of size
