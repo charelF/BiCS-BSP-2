@@ -1,1 +1,0 @@
-When archiving this directory, ZIP the datasets, as they take to much space otherwhise

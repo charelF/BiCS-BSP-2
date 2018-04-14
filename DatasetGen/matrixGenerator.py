@@ -1,7 +1,7 @@
 import numpy as np   # module used for creating matrices
 import random   # module used to find random integers
-import pandas as pd   # module used to export matrix as CSV
-import scipy.misc   # module used to export matrix as image
+# import pandas as pd   # module used to export matrix as CSV
+# import scipy.misc   # module used to export matrix as image
 
 
 class Matrix:
