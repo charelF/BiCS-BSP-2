@@ -1,14 +1,18 @@
+import os
+os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
+# somehow the files think they are in another directory than they really are.
+
 from matrixGenerator import *
-import re #for the load dataset
+import re  # for the loadDataset
 
 
-def createDataset(amount, filename, MatrixParam, SubmatrixParam, NoiseParam=None):
+def createDataset(size, filename, MatrixParam, SubmatrixParam, NoiseParam=None):
     outputFileName = filename + "_output" + ".txt"
     inputFileName = filename + "_input" + ".txt"
 
     # Generation of input set
     inputSet=[]
-    for i in range(amount):
+    for i in range(size):
 
         if i % 2:
             temporaryMatrix = FeatureMatrix(*MatrixParam)
@@ -27,9 +31,9 @@ def createDataset(amount, filename, MatrixParam, SubmatrixParam, NoiseParam=None
 
 
     # Generation of output set
-    outputSet=[i % 2 for i in range(amount)]
+    outputSet=[i % 2 for i in range(size)]
     outputSet = np.array(outputSet)
-    outputSet = outputSet.reshape(amount, 1, 1)
+    outputSet = outputSet.reshape(size, 1, 1)
     saveDataset(outputFileName, outputSet)
 
 
@@ -59,8 +63,3 @@ def loadDataset(filename):
     dataset = dataset.reshape((*dimensions))
     return dataset
 
-
-#createDataset(3, "test", (12, 12), (6, 6), (33, 0))
-#loadDataset("test_input.txt")
-# it works, but idk why saves it in wrong place, namely BSP2 super folder
-#print(loadDataset("test_output.txt"))

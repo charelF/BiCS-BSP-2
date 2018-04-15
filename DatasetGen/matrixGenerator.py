@@ -1,3 +1,7 @@
+import os
+os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
+# somehow the files think they are in another directory than they really are.
+
 import numpy as np   # module used for creating matrices
 import random   # module used to find random integers
 # import pandas as pd   # module used to export matrix as CSV
@@ -15,24 +19,21 @@ class Matrix:
             the matrix, but does not add new values: It replaces certain 1's
             with 0's and vice versa, but does not add intermediary values.
 
-        Parameters
-        ----------
-        noiseDensity : int
-            Description of parameter `noiseDensity`.
-        modifiedLocations : type
-            Description of parameter `modifiedLocations`.
+            Parameters
+            ----------
+            noiseDensity : int
+                Description of parameter `noiseDensity`.
+            modifiedLocations : type
+                Description of parameter `modifiedLocations`.
 
-        Returns
-        -------
-        type
-            Description of returned object.
-
+            Returns
+            -------
+            type
+                Description of returned object.
         """
 
         noiseDensity = (noiseDensity//2)+50
-        randomMatrix = np.random.randint(low=0,
-                                         high=noiseDensity,
-                                         size=self.content.shape)
+        randomMatrix = np.random.randint(low=0, high=noiseDensity, size=self.content.shape)
 
         randomMatrix = np.where(randomMatrix < 50, 0, randomMatrix)
         randomMatrix = np.where(randomMatrix >= 50, 1, randomMatrix)
