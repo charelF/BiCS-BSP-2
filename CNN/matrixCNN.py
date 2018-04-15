@@ -23,53 +23,27 @@ print("the size of the dataset is: ", inputData.shape, " of type: ", type(inputD
 
 # parameters
 
-batchSize = 64
-epochAmount = 100
-imageSize=(inputData.shape[1], inputData.shape[2])
-
-
 # CNN
 
-'''cnn = Sequential()
+cnn = Sequential()
 
-cnn.add(Conv2D(32, (3, 3), input_shape = (16, 16, 1), activation = 'relu'))
-# some weird problems with the input_shape
+cnn.add(Conv2D(32, (3, 3), input_shape = inputData.shape, activation = 'relu'))
 
 cnn.add(MaxPooling2D(pool_size = (2, 2)))
 
-cnn.add(Flatten())'''
+cnn.add(Flatten())
 
-
-# ANN
-
-
-
-'''cnn.add(Dense(units=64, activation='relu'))
+cnn.add(Dense(units=64, activation='relu'))
 
 cnn.add(Dense(units=1, activation='sigmoid'))
 
-cnn.compile(optimizer = "adam", loss = 'binary_crossentropy', metrics = ['accuracy'])'''
+cnn.compile(optimizer = "adam", loss = 'binary_crossentropy', metrics = ['accuracy'])
 
+cnn.summary()
 
-
-
-# ANN standalone
-cnn = Sequential()
-cnn.add(Dense(units=64, activation='relu', input_dim=inputData.shape[1]*inputData.shape[2]))  # input
-cnn.add(Dense(units=inputData.shape[1]*inputData.shape[2], activation='relu'))  # hidden
-cnn.add(Dense(units=1, activation='sigmoid'))  # output
-
-cnn.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
-
-inputDataFlat = inputData.reshape(inputData.shape[0], inputData.shape[1]*inputData.shape[2])
-outputDataFlat = outputData.reshape(outputData.shape[0], outputData.shape[1]*outputData.shape[2])
-
-
-cnn.fit(inputDataFlat,
-        outputDataFlat,
-        batch_size=None,
-        epochs=epochAmount,
-        steps_per_epoch=(inputData.shape[0]//epochAmount),
-        shuffle=True)
+cnn.fit(inputData,
+        outputData,
+        epochs=100,
+        validation_split=0.2)
 
 keepOpen=input()

@@ -4,9 +4,17 @@ os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 
 from dataSetGenerator import *
 
+q = int(input("datasetsize  "))
+a = int(input("column Matrix  "))
+b = int(input("row Matrix  "))
+c = int(input("column SubMatrix  "))
+d = int(input("row SubMatrix  "))
+e = int(input("amount of noise  "))
+f = int(input("location of noise  "))
+
 Confirmation = input("do you really want to create the dataset? y/n")
 if Confirmation == "y":
-    createDataset(2000, "test", (20, 20), (5, 5), (25, 0))
+    createDataset(q, "test", (a, b), (c, d), (e, f))
     print("succes")
     print("input shape is: ", loadDataset("test_input.txt").shape)
     print("output shape is: ", loadDataset("test_output.txt").shape)
