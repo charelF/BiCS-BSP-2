@@ -2,6 +2,7 @@
 import sys
 sys.path.append("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 import dataSetGenerator as dsg
+import glob  # for the dataset name detection
 
 # keras imports
 from keras.models import Sequential #used to initialize NN as sequence of layers
@@ -17,9 +18,17 @@ from keras.preprocessing.image import ImageDataGenerator #used for image preproc
 
 # data
 
-inputData = dsg.loadDataset("test_input.txt")
-outputData = dsg.loadDataset("test_output.txt")
+# inputData = dsg.loadDataset("test_input.txt")
+inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+# outputData = dsg.loadDataset("test_output.txt")
+outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+print("#############################################################################")
 print("the size of the dataset is: ", inputData.shape, " of type: ", type(inputData))
+print(inputData[1])
+print("this is the inputset description: ",dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
+print("this is the outputset descrition: ",dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
+print("these are the names: ", glob.glob("*_input.txt")[0], glob.glob("*_output.txt")[0])
+print("#############################################################################")
 
 inputDataShape = inputData.shape
 # inputDataShape = tuple(amount of matrices, columns, rows)

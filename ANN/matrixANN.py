@@ -3,6 +3,7 @@
 import sys
 sys.path.append("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 import dataSetGenerator as dsg
+import glob
 
 
 # keras imports
@@ -14,9 +15,17 @@ from keras.layers import Dropout
 
 # data
 
-inputData = dsg.loadDataset("test_input.txt")
-outputData = dsg.loadDataset("test_output.txt")
+
+inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+
 print("the size of the dataset is: ", inputData.shape, " of type: ", type(inputData))
+print(inputData[1])
+print("this is the inputset description: ",dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
+print("this is the outputset descrition: ",dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
+print("these are the names: ", glob.glob("*_input.txt")[0], glob.glob("*_output.txt")[0])
+
+
 
 inputDataFlat = inputData.reshape(inputData.shape[0], inputData.shape[1]*inputData.shape[2])
 outputDataFlat = outputData.reshape(outputData.shape[0], outputData.shape[1]*outputData.shape[2])

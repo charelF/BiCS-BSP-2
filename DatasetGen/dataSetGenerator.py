@@ -6,7 +6,7 @@ from matrixGenerator import *
 import re  # for the loadDataset
 
 
-def createDataset(size, filename, MatrixParam, SubmatrixParam, NoiseParam=None):
+def createDataset(size, filename, MatrixParam, SubmatrixParam, NoiseParam, description):
     outputFileName = filename + "_output" + ".txt"
     inputFileName = filename + "_input" + ".txt"
 
@@ -27,25 +27,26 @@ def createDataset(size, filename, MatrixParam, SubmatrixParam, NoiseParam=None):
 
     inputSet = np.array(inputSet)
     # we don't need to reshape as it is already in the correct shape
-    saveDataset(inputFileName, inputSet)
+    saveDataset(inputFileName, inputSet, description)
 
 
     # Generation of output set
     outputSet=[i % 2 for i in range(size)]
     outputSet = np.array(outputSet)
     outputSet = outputSet.reshape(size, 1, 1)
-    saveDataset(outputFileName, outputSet)
+    saveDataset(outputFileName, outputSet, description)
 
 
-def saveDataset(filename, dataset):
+def saveDataset(filename, dataset, description):
     """ Inspired by a similar application from Benjamin Jahic
     """
     with open(filename, "w") as file:
-        file.write("#________________Array__Info:__{}__________\n".format(dataset.shape))
+        file.write("#________________Array info: {}\n".format(dataset.shape))
+        file.write("#________________Description: {}\n".format(description))
         count = 1
 
         for array in dataset:
-            file.write("#________________Entry__Number__{}________\n".format(count))
+            file.write("#________________Entry number: {}\n".format(count))
             np.savetxt(file, array, fmt="%0u")
             count += 1
 
@@ -54,7 +55,7 @@ def loadDataset(filename):
     dataset = np.loadtxt(filename)
 
     text = open(filename).read()
-    regEx = re.search("(?:\()\d+,.\d+,.\d+(?:\))", text).group(0)
+    regEx = re.search("[(]\d+, \d+, \d+[)]", text).group(0)
     # regEx is all tuples with 3 decimals found in the text
     valueFinder = re.findall("\d+", regEx)
     # valueFinder is a list of all decimals in regEx
@@ -63,3 +64,7 @@ def loadDataset(filename):
     dataset = dataset.reshape((*dimensions))
     return dataset
 
+def loadDatasetDescription(filename):
+    text = open(filename).read()
+    regEx = re.search("Description: .*", text).group(0)
+    return regEx
