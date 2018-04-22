@@ -18,17 +18,17 @@ from keras.preprocessing.image import ImageDataGenerator #used for image preproc
 
 # data
 
-# inputData = dsg.loadDataset("test_input.txt")
 inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
-# outputData = dsg.loadDataset("test_output.txt")
 outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
-print("#############################################################################")
-print("the size of the dataset is: ", inputData.shape, " of type: ", type(inputData))
-print(inputData[1])
-print("this is the inputset description: ",dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
-print("this is the outputset descrition: ",dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
-print("these are the names: ", glob.glob("*_input.txt")[0], glob.glob("*_output.txt")[0])
-print("#############################################################################")
+
+print("\n\n\n========================= DataSetInfo: =========================\n")
+print("Size:                ", inputData.shape)
+print("Type:                ", type(inputData))
+print("InputName:           ", glob.glob("*_input.txt")[0])
+print("InputDescription:    ", dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
+print("OutputName:          ", glob.glob("*_output.txt")[0])
+print("OutputDescription:   ", dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
+print("\n================================================================\n\n\n")
 
 inputDataShape = inputData.shape
 # inputDataShape = tuple(amount of matrices, columns, rows)
@@ -38,11 +38,16 @@ outputData = outputData.reshape(inputDataShape[0], 1)
 
 # CNN
 
+
 cnn = Sequential()
 
 cnn.add(Conv2D(32, (3, 3), input_shape = (inputDataShape[1], inputDataShape[2], 1), activation = 'relu'))
 
 cnn.add(MaxPooling2D(pool_size = (2, 2)))
+
+# cnn.add(Conv2D(20, (3, 3), activation="relu"))
+# cnn.add(MaxPooling2D(pool_size = (2, 2)))
+# --> addding one more conv+pool layer drastically increases accuracy.
 
 cnn.add(Flatten())
 
