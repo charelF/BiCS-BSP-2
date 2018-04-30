@@ -85,6 +85,10 @@ bestAccuracy = gridSearch.best_score_  # gives us the highest accuracy
 
 # for explanations, see Udemy ann2.py
 
+""" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+vialicht dat do nach anbauen:
+loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+"""
 
 
 
