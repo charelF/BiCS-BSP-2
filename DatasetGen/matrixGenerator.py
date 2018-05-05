@@ -82,11 +82,22 @@ class FeatureMatrix(Matrix):
                     Returns a matrix filled with 0's except for a random submatrix
                     inside which is filled with 1's.
             """
+            temp = [columnSubmatrix, rowSubmatrix]
+            for i in range(len(self.content.shape)):
+                if self.content.shape[i] < temp[i]:
+                    temp[i] = self.content.shape[i]
+            columnSubmatrix, rowSubmatrix = temp
+            # this removes the error from submatrix being larger than matrixself.
+            # the code needs to be optimised, and simplified
+
+
             submatrix = np.ones((columnSubmatrix, rowSubmatrix), dtype=np.int8)
             columnCoordinates = random.randint(0, (min(self.column, self.row))-(columnSubmatrix))
             rowCoordinates = random.randint(0, (min(self.column, self.row))-(rowSubmatrix))
 
             self.content[columnCoordinates:(columnCoordinates + columnSubmatrix),
                          rowCoordinates:(rowCoordinates + rowSubmatrix)] = submatrix
+            # quick note, the ":" is not used like for ex in Swift, but just to
+            # index the list, like in python: a=[1,2,3,4] --> a[0:2] = [1,2,3]
 
             return self.content

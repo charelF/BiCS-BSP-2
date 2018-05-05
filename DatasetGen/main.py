@@ -2,6 +2,7 @@ import os
 os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 # somehow the files think they are in another directory than they really are.
 
+#This file contains all calls and test cases
 from dataSetGenerator import *
 h = str(input("name of the dataset  "))
 g = str(input("description of the dataset, used to verfiy we are training on the right one  "))
