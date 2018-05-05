@@ -31,12 +31,11 @@ print("\n================================================================\n\n\n"
 inputDataFlat = inputData.reshape(inputData.shape[0], inputData.shape[1]*inputData.shape[2])
 outputDataFlat = outputData.reshape(outputData.shape[0], outputData.shape[1]*outputData.shape[2])
 
-
 # ANN
 
 ann = Sequential()
 
-ann.add(Dense(units=1000, activation='relu', input_dim=inputData.shape[1]*inputData.shape[2]))  # input
+ann.add(Dense(units=1000, activation='relu', input_dim=inputDataFlat.shape[1]))  # input
 
 ann.add(Dropout(rate=0.4))
 
@@ -44,11 +43,11 @@ ann.add(Dense(units=400, activation='relu'))
 
 ann.add(Dropout(rate=0.4))
 
-ann.add(Dense(units=40, activation='relu'))  # hidden
+ann.add(Dense(units=40, activation='relu'))
 
 ann.add(Dropout(rate=0.4))
 
-ann.add(Dense(units=1, activation='sigmoid'))  # output
+ann.add(Dense(units=1, activation='sigmoid'))
 
 ann.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
