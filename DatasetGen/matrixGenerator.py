@@ -10,8 +10,6 @@ import random   # module used to find random integers
 
 class Matrix:
     def __init__(self, column, row):
-        self.column = column
-        self.row = row
         self.content = np.zeros((column, row), dtype=np.int8)
 
     def addBinaryNoise(self, noiseDensity, modifiedLocations):
@@ -58,11 +56,11 @@ class EmptyMatrix(Matrix):
     pass
 
 class FeatureMatrix(Matrix):
-        def fillMatrixWithSubmatrix(self, columnSubmatrix, rowSubmatrix):
+        def fillMatrixWithSubMatrix(self, columnSubMatrix, rowSubMatrix):
             """ The function generates two matrices, namely the matrix M of size
-                column by row, and a submatrix of size columnSubmatrix by
-                rowSubmatrix. The matrix contains only 0's and the submatrix
-                contains only 1's. The submatrix is then placed at a random
+                column by row, and a SubMatrix of size columnSubMatrix by
+                rowSubMatrix. The matrix contains only 0's and the SubMatrix
+                contains only 1's. The SubMatrix is then placed at a random
                 position inside the matrix.
 
                 Parameters
@@ -71,33 +69,29 @@ class FeatureMatrix(Matrix):
                     column size of the matrix M.
                 row : int > 0
                     row size of the matrix M.
-                columnSubmatrix : int >= 0, int =< column
-                    column size of the matrix submatrix.
-                rowSubmatrix : int >= 0, int <= columnSubmatrix
-                    row size of the matrix submatrix.
+                columnSubMatrix : int >= 0, int =< column
+                    column size of the matrix SubMatrix.
+                rowSubMatrix : int >= 0, int <= columnSubMatrix
+                    row size of the matrix SubMatrix.
 
                 Returns
                 -------
                 numpy.ndarray
-                    Returns a matrix filled with 0's except for a random submatrix
+                    Returns a matrix filled with 0's except for a random SubMatrix
                     inside which is filled with 1's.
             """
-            temp = [columnSubmatrix, rowSubmatrix]
-            for i in range(len(self.content.shape)):
-                if self.content.shape[i] < temp[i]:
-                    temp[i] = self.content.shape[i]
-            columnSubmatrix, rowSubmatrix = temp
-            # this removes the error from submatrix being larger than matrixself.
-            # the code needs to be optimised, and simplified
+
+            columnSubMatrix = min(self.content.shape[0], columnSubMatrix)
+            rowSubMatrix = min(self.content.shape[1], rowSubMatrix)
+            # dimensions of subMatrix can not exceed dimensions of matrix
 
 
-            submatrix = np.ones((columnSubmatrix, rowSubmatrix), dtype=np.int8)
-            columnCoordinates = random.randint(0, (min(self.column, self.row))-(columnSubmatrix))
-            rowCoordinates = random.randint(0, (min(self.column, self.row))-(rowSubmatrix))
+            SubMatrix = np.ones((columnSubMatrix, rowSubMatrix), dtype=np.int8)
+            columnCoordinates = random.randint(0, self.content.shape[0] - columnSubMatrix)
+            rowCoordinates = random.randint(0, self.content.shape[1] - rowSubMatrix)
 
-            self.content[columnCoordinates:(columnCoordinates + columnSubmatrix),
-                         rowCoordinates:(rowCoordinates + rowSubmatrix)] = submatrix
-            # quick note, the ":" is not used like for ex in Swift, but just to
-            # index the list, like in python: a=[1,2,3,4] --> a[0:2] = [1,2,3]
+            self.content[columnCoordinates:(columnCoordinates + columnSubMatrix),
+                         rowCoordinates:(rowCoordinates + rowSubMatrix)] = SubMatrix
+            # the ":" is use to index the list: a=[1,2,3,4] --> a[0:2] = [1,2,3]
 
             return self.content

@@ -7,7 +7,7 @@ from matrixGenerator import *
 import re  # for the loadDataset
 
 
-def createDataset(size, filename, description, matrixParam, submatrixParam, noiseParam):
+def createDataset(size, filename, description, matrixParam, subMatrixParam, noiseParam):
     outputFileName = filename + "_output" + ".txt"
     inputFileName = filename + "_input" + ".txt"
 
@@ -16,7 +16,7 @@ def createDataset(size, filename, description, matrixParam, submatrixParam, nois
     for i in range(size):
         if i % 2:
             temporaryMatrix = FeatureMatrix(*matrixParam)
-            temporaryMatrix.fillMatrixWithSubmatrix(*SubmatrixParam)
+            temporaryMatrix.fillMatrixWithSubMatrix(*subMatrixParam)
         else:
             temporaryMatrix = EmptyMatrix(*matrixParam)
 
