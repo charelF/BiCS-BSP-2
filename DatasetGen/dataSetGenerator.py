@@ -49,8 +49,8 @@ def saveDataset(filename, dataset, description):
     with open(filename, "w") as file:
         file.write("#________________Array info: {}\n".format(dataset.shape))
         file.write("#________________Description: {}\n".format(description))
-        count = 1
 
+        count = 1
         for array in dataset:
             file.write("#________________Entry number: {}\n".format(count))
             np.savetxt(file, array, fmt="%0u")

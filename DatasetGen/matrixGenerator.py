@@ -30,8 +30,8 @@ class Matrix:
                 Description of returned object.
         """
 
-        noiseDensity = (noiseDensity//2)+50
-        randomMatrix = np.random.randint(low=0, high=noiseDensity, size=self.content.shape)
+        randomMatrix = np.random.randint(low=0, high=(noiseDensity//2)+50,
+                                         size=self.content.shape)
 
         randomMatrix = np.where(randomMatrix < 50, 0, randomMatrix)
         randomMatrix = np.where(randomMatrix >= 50, 1, randomMatrix)
@@ -39,17 +39,16 @@ class Matrix:
         if modifiedLocations == 0:
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 1, self.content)
-            return self.content
 
         elif modifiedLocations == 1:
             self.content -= randomMatrix
             self.content = np.where(self.content < 0, 0, self.content)
-            return self.content
 
-        else:
+        elif modifiedLocations == 2:
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 0, self.content)
-            return self.content
+
+        return self.content
 
 
 class EmptyMatrix(Matrix):
@@ -86,12 +85,19 @@ class FeatureMatrix(Matrix):
             # dimensions of subMatrix can not exceed dimensions of matrix
 
 
-            SubMatrix = np.ones((columnSubMatrix, rowSubMatrix), dtype=np.int8)
+            subMatrix = np.ones((columnSubMatrix, rowSubMatrix), dtype=np.int8)
             columnCoordinates = random.randint(0, self.content.shape[0] - columnSubMatrix)
             rowCoordinates = random.randint(0, self.content.shape[1] - rowSubMatrix)
 
             self.content[columnCoordinates:(columnCoordinates + columnSubMatrix),
-                         rowCoordinates:(rowCoordinates + rowSubMatrix)] = SubMatrix
+                         rowCoordinates:(rowCoordinates + rowSubMatrix)] = subMatrix
             # the ":" is use to index the list: a=[1,2,3,4] --> a[0:2] = [1,2,3]
 
             return self.content
+
+# a=Matrix(30,30)
+# a.addBinaryNoise(166567,2)
+# print(a.content)
+# b=FeatureMatrix(4,4)
+# b.fillMatrixWithSubMatrix(3,3)
+# print(b.content)

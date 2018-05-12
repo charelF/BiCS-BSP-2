@@ -16,7 +16,7 @@ f = int(input("location of noise  "))
 
 Confirmation = input("do you really want to create the dataset? y/n")
 if Confirmation == "y":
-    description = (g+"name: ", h, "noise and location: ", str(e), str(f))
+    description = (g, ", name: ", h, ", noise and location: ", str(e), str(f))
     createDataset(q, h, description, (a, b), (c, d), (e, f))
     print("succes")
     print("input shape is: ", loadDataset("{}_input.txt".format(h)).shape)
