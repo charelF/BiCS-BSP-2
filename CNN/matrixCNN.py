@@ -13,15 +13,6 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Reshape, Dropout
 inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
 outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
 
-print("\n\n\n========================= DataSetInfo: =========================\n")
-print("Size:                ", inputData.shape)
-print("Type:                ", type(inputData))
-print("InputName:           ", glob.glob("*_input.txt")[0])
-print("InputDescription:    ", dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
-print("OutputName:          ", glob.glob("*_output.txt")[0])
-print("OutputDescription:   ", dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
-print("\n================================================================\n\n\n")
-
 inputDataShape = inputData.shape
 # inputDataShape = tuple(amount of matrices, columns, rows)
 inputData = inputData.reshape(*inputDataShape, 1)

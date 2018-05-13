@@ -19,15 +19,6 @@ from keras.layers import Dropout
 inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
 outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
 
-print("\n\n\n========================= DataSetInfo: =========================\n")
-print("Size:                ", inputData.shape)
-print("Type:                ", type(inputData))
-print("InputName:           ", glob.glob("*_input.txt")[0])
-print("InputDescription:    ", dsg.loadDatasetDescription(glob.glob("*_input.txt")[0]))
-print("OutputName:          ", glob.glob("*_output.txt")[0])
-print("OutputDescription:   ", dsg.loadDatasetDescription(glob.glob("*_output.txt")[0]))
-print("\n================================================================\n\n\n")
-
 inputDataFlat = inputData.reshape(inputData.shape[0], inputData.shape[1]*inputData.shape[2])
 outputDataFlat = outputData.reshape(outputData.shape[0], outputData.shape[1]*outputData.shape[2])
 

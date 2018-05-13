@@ -1,0 +1,1806 @@
+## Dataset Dimensions: (900, 1, 1)
+# Filename: finalTest_output.txt
+# Description: this is the final test
+# MatrixParam: (50, 10)
+# SubMatrixParam: (52, 60)
+# NoiseParam: (600, 2)##
+# Entry number: 1
+0
+# Entry number: 2
+1
+# Entry number: 3
+0
+# Entry number: 4
+1
+# Entry number: 5
+0
+# Entry number: 6
+1
+# Entry number: 7
+0
+# Entry number: 8
+1
+# Entry number: 9
+0
+# Entry number: 10
+1
+# Entry number: 11
+0
+# Entry number: 12
+1
+# Entry number: 13
+0
+# Entry number: 14
+1
+# Entry number: 15
+0
+# Entry number: 16
+1
+# Entry number: 17
+0
+# Entry number: 18
+1
+# Entry number: 19
+0
+# Entry number: 20
+1
+# Entry number: 21
+0
+# Entry number: 22
+1
+# Entry number: 23
+0
+# Entry number: 24
+1
+# Entry number: 25
+0
+# Entry number: 26
+1
+# Entry number: 27
+0
+# Entry number: 28
+1
+# Entry number: 29
+0
+# Entry number: 30
+1
+# Entry number: 31
+0
+# Entry number: 32
+1
+# Entry number: 33
+0
+# Entry number: 34
+1
+# Entry number: 35
+0
+# Entry number: 36
+1
+# Entry number: 37
+0
+# Entry number: 38
+1
+# Entry number: 39
+0
+# Entry number: 40
+1
+# Entry number: 41
+0
+# Entry number: 42
+1
+# Entry number: 43
+0
+# Entry number: 44
+1
+# Entry number: 45
+0
+# Entry number: 46
+1
+# Entry number: 47
+0
+# Entry number: 48
+1
+# Entry number: 49
+0
+# Entry number: 50
+1
+# Entry number: 51
+0
+# Entry number: 52
+1
+# Entry number: 53
+0
+# Entry number: 54
+1
+# Entry number: 55
+0
+# Entry number: 56
+1
+# Entry number: 57
+0
+# Entry number: 58
+1
+# Entry number: 59
+0
+# Entry number: 60
+1
+# Entry number: 61
+0
+# Entry number: 62
+1
+# Entry number: 63
+0
+# Entry number: 64
+1
+# Entry number: 65
+0
+# Entry number: 66
+1
+# Entry number: 67
+0
+# Entry number: 68
+1
+# Entry number: 69
+0
+# Entry number: 70
+1
+# Entry number: 71
+0
+# Entry number: 72
+1
+# Entry number: 73
+0
+# Entry number: 74
+1
+# Entry number: 75
+0
+# Entry number: 76
+1
+# Entry number: 77
+0
+# Entry number: 78
+1
+# Entry number: 79
+0
+# Entry number: 80
+1
+# Entry number: 81
+0
+# Entry number: 82
+1
+# Entry number: 83
+0
+# Entry number: 84
+1
+# Entry number: 85
+0
+# Entry number: 86
+1
+# Entry number: 87
+0
+# Entry number: 88
+1
+# Entry number: 89
+0
+# Entry number: 90
+1
+# Entry number: 91
+0
+# Entry number: 92
+1
+# Entry number: 93
+0
+# Entry number: 94
+1
+# Entry number: 95
+0
+# Entry number: 96
+1
+# Entry number: 97
+0
+# Entry number: 98
+1
+# Entry number: 99
+0
+# Entry number: 100
+1
+# Entry number: 101
+0
+# Entry number: 102
+1
+# Entry number: 103
+0
+# Entry number: 104
+1
+# Entry number: 105
+0
+# Entry number: 106
+1
+# Entry number: 107
+0
+# Entry number: 108
+1
+# Entry number: 109
+0
+# Entry number: 110
+1
+# Entry number: 111
+0
+# Entry number: 112
+1
+# Entry number: 113
+0
+# Entry number: 114
+1
+# Entry number: 115
+0
+# Entry number: 116
+1
+# Entry number: 117
+0
+# Entry number: 118
+1
+# Entry number: 119
+0
+# Entry number: 120
+1
+# Entry number: 121
+0
+# Entry number: 122
+1
+# Entry number: 123
+0
+# Entry number: 124
+1
+# Entry number: 125
+0
+# Entry number: 126
+1
+# Entry number: 127
+0
+# Entry number: 128
+1
+# Entry number: 129
+0
+# Entry number: 130
+1
+# Entry number: 131
+0
+# Entry number: 132
+1
+# Entry number: 133
+0
+# Entry number: 134
+1
+# Entry number: 135
+0
+# Entry number: 136
+1
+# Entry number: 137
+0
+# Entry number: 138
+1
+# Entry number: 139
+0
+# Entry number: 140
+1
+# Entry number: 141
+0
+# Entry number: 142
+1
+# Entry number: 143
+0
+# Entry number: 144
+1
+# Entry number: 145
+0
+# Entry number: 146
+1
+# Entry number: 147
+0
+# Entry number: 148
+1
+# Entry number: 149
+0
+# Entry number: 150
+1
+# Entry number: 151
+0
+# Entry number: 152
+1
+# Entry number: 153
+0
+# Entry number: 154
+1
+# Entry number: 155
+0
+# Entry number: 156
+1
+# Entry number: 157
+0
+# Entry number: 158
+1
+# Entry number: 159
+0
+# Entry number: 160
+1
+# Entry number: 161
+0
+# Entry number: 162
+1
+# Entry number: 163
+0
+# Entry number: 164
+1
+# Entry number: 165
+0
+# Entry number: 166
+1
+# Entry number: 167
+0
+# Entry number: 168
+1
+# Entry number: 169
+0
+# Entry number: 170
+1
+# Entry number: 171
+0
+# Entry number: 172
+1
+# Entry number: 173
+0
+# Entry number: 174
+1
+# Entry number: 175
+0
+# Entry number: 176
+1
+# Entry number: 177
+0
+# Entry number: 178
+1
+# Entry number: 179
+0
+# Entry number: 180
+1
+# Entry number: 181
+0
+# Entry number: 182
+1
+# Entry number: 183
+0
+# Entry number: 184
+1
+# Entry number: 185
+0
+# Entry number: 186
+1
+# Entry number: 187
+0
+# Entry number: 188
+1
+# Entry number: 189
+0
+# Entry number: 190
+1
+# Entry number: 191
+0
+# Entry number: 192
+1
+# Entry number: 193
+0
+# Entry number: 194
+1
+# Entry number: 195
+0
+# Entry number: 196
+1
+# Entry number: 197
+0
+# Entry number: 198
+1
+# Entry number: 199
+0
+# Entry number: 200
+1
+# Entry number: 201
+0
+# Entry number: 202
+1
+# Entry number: 203
+0
+# Entry number: 204
+1
+# Entry number: 205
+0
+# Entry number: 206
+1
+# Entry number: 207
+0
+# Entry number: 208
+1
+# Entry number: 209
+0
+# Entry number: 210
+1
+# Entry number: 211
+0
+# Entry number: 212
+1
+# Entry number: 213
+0
+# Entry number: 214
+1
+# Entry number: 215
+0
+# Entry number: 216
+1
+# Entry number: 217
+0
+# Entry number: 218
+1
+# Entry number: 219
+0
+# Entry number: 220
+1
+# Entry number: 221
+0
+# Entry number: 222
+1
+# Entry number: 223
+0
+# Entry number: 224
+1
+# Entry number: 225
+0
+# Entry number: 226
+1
+# Entry number: 227
+0
+# Entry number: 228
+1
+# Entry number: 229
+0
+# Entry number: 230
+1
+# Entry number: 231
+0
+# Entry number: 232
+1
+# Entry number: 233
+0
+# Entry number: 234
+1
+# Entry number: 235
+0
+# Entry number: 236
+1
+# Entry number: 237
+0
+# Entry number: 238
+1
+# Entry number: 239
+0
+# Entry number: 240
+1
+# Entry number: 241
+0
+# Entry number: 242
+1
+# Entry number: 243
+0
+# Entry number: 244
+1
+# Entry number: 245
+0
+# Entry number: 246
+1
+# Entry number: 247
+0
+# Entry number: 248
+1
+# Entry number: 249
+0
+# Entry number: 250
+1
+# Entry number: 251
+0
+# Entry number: 252
+1
+# Entry number: 253
+0
+# Entry number: 254
+1
+# Entry number: 255
+0
+# Entry number: 256
+1
+# Entry number: 257
+0
+# Entry number: 258
+1
+# Entry number: 259
+0
+# Entry number: 260
+1
+# Entry number: 261
+0
+# Entry number: 262
+1
+# Entry number: 263
+0
+# Entry number: 264
+1
+# Entry number: 265
+0
+# Entry number: 266
+1
+# Entry number: 267
+0
+# Entry number: 268
+1
+# Entry number: 269
+0
+# Entry number: 270
+1
+# Entry number: 271
+0
+# Entry number: 272
+1
+# Entry number: 273
+0
+# Entry number: 274
+1
+# Entry number: 275
+0
+# Entry number: 276
+1
+# Entry number: 277
+0
+# Entry number: 278
+1
+# Entry number: 279
+0
+# Entry number: 280
+1
+# Entry number: 281
+0
+# Entry number: 282
+1
+# Entry number: 283
+0
+# Entry number: 284
+1
+# Entry number: 285
+0
+# Entry number: 286
+1
+# Entry number: 287
+0
+# Entry number: 288
+1
+# Entry number: 289
+0
+# Entry number: 290
+1
+# Entry number: 291
+0
+# Entry number: 292
+1
+# Entry number: 293
+0
+# Entry number: 294
+1
+# Entry number: 295
+0
+# Entry number: 296
+1
+# Entry number: 297
+0
+# Entry number: 298
+1
+# Entry number: 299
+0
+# Entry number: 300
+1
+# Entry number: 301
+0
+# Entry number: 302
+1
+# Entry number: 303
+0
+# Entry number: 304
+1
+# Entry number: 305
+0
+# Entry number: 306
+1
+# Entry number: 307
+0
+# Entry number: 308
+1
+# Entry number: 309
+0
+# Entry number: 310
+1
+# Entry number: 311
+0
+# Entry number: 312
+1
+# Entry number: 313
+0
+# Entry number: 314
+1
+# Entry number: 315
+0
+# Entry number: 316
+1
+# Entry number: 317
+0
+# Entry number: 318
+1
+# Entry number: 319
+0
+# Entry number: 320
+1
+# Entry number: 321
+0
+# Entry number: 322
+1
+# Entry number: 323
+0
+# Entry number: 324
+1
+# Entry number: 325
+0
+# Entry number: 326
+1
+# Entry number: 327
+0
+# Entry number: 328
+1
+# Entry number: 329
+0
+# Entry number: 330
+1
+# Entry number: 331
+0
+# Entry number: 332
+1
+# Entry number: 333
+0
+# Entry number: 334
+1
+# Entry number: 335
+0
+# Entry number: 336
+1
+# Entry number: 337
+0
+# Entry number: 338
+1
+# Entry number: 339
+0
+# Entry number: 340
+1
+# Entry number: 341
+0
+# Entry number: 342
+1
+# Entry number: 343
+0
+# Entry number: 344
+1
+# Entry number: 345
+0
+# Entry number: 346
+1
+# Entry number: 347
+0
+# Entry number: 348
+1
+# Entry number: 349
+0
+# Entry number: 350
+1
+# Entry number: 351
+0
+# Entry number: 352
+1
+# Entry number: 353
+0
+# Entry number: 354
+1
+# Entry number: 355
+0
+# Entry number: 356
+1
+# Entry number: 357
+0
+# Entry number: 358
+1
+# Entry number: 359
+0
+# Entry number: 360
+1
+# Entry number: 361
+0
+# Entry number: 362
+1
+# Entry number: 363
+0
+# Entry number: 364
+1
+# Entry number: 365
+0
+# Entry number: 366
+1
+# Entry number: 367
+0
+# Entry number: 368
+1
+# Entry number: 369
+0
+# Entry number: 370
+1
+# Entry number: 371
+0
+# Entry number: 372
+1
+# Entry number: 373
+0
+# Entry number: 374
+1
+# Entry number: 375
+0
+# Entry number: 376
+1
+# Entry number: 377
+0
+# Entry number: 378
+1
+# Entry number: 379
+0
+# Entry number: 380
+1
+# Entry number: 381
+0
+# Entry number: 382
+1
+# Entry number: 383
+0
+# Entry number: 384
+1
+# Entry number: 385
+0
+# Entry number: 386
+1
+# Entry number: 387
+0
+# Entry number: 388
+1
+# Entry number: 389
+0
+# Entry number: 390
+1
+# Entry number: 391
+0
+# Entry number: 392
+1
+# Entry number: 393
+0
+# Entry number: 394
+1
+# Entry number: 395
+0
+# Entry number: 396
+1
+# Entry number: 397
+0
+# Entry number: 398
+1
+# Entry number: 399
+0
+# Entry number: 400
+1
+# Entry number: 401
+0
+# Entry number: 402
+1
+# Entry number: 403
+0
+# Entry number: 404
+1
+# Entry number: 405
+0
+# Entry number: 406
+1
+# Entry number: 407
+0
+# Entry number: 408
+1
+# Entry number: 409
+0
+# Entry number: 410
+1
+# Entry number: 411
+0
+# Entry number: 412
+1
+# Entry number: 413
+0
+# Entry number: 414
+1
+# Entry number: 415
+0
+# Entry number: 416
+1
+# Entry number: 417
+0
+# Entry number: 418
+1
+# Entry number: 419
+0
+# Entry number: 420
+1
+# Entry number: 421
+0
+# Entry number: 422
+1
+# Entry number: 423
+0
+# Entry number: 424
+1
+# Entry number: 425
+0
+# Entry number: 426
+1
+# Entry number: 427
+0
+# Entry number: 428
+1
+# Entry number: 429
+0
+# Entry number: 430
+1
+# Entry number: 431
+0
+# Entry number: 432
+1
+# Entry number: 433
+0
+# Entry number: 434
+1
+# Entry number: 435
+0
+# Entry number: 436
+1
+# Entry number: 437
+0
+# Entry number: 438
+1
+# Entry number: 439
+0
+# Entry number: 440
+1
+# Entry number: 441
+0
+# Entry number: 442
+1
+# Entry number: 443
+0
+# Entry number: 444
+1
+# Entry number: 445
+0
+# Entry number: 446
+1
+# Entry number: 447
+0
+# Entry number: 448
+1
+# Entry number: 449
+0
+# Entry number: 450
+1
+# Entry number: 451
+0
+# Entry number: 452
+1
+# Entry number: 453
+0
+# Entry number: 454
+1
+# Entry number: 455
+0
+# Entry number: 456
+1
+# Entry number: 457
+0
+# Entry number: 458
+1
+# Entry number: 459
+0
+# Entry number: 460
+1
+# Entry number: 461
+0
+# Entry number: 462
+1
+# Entry number: 463
+0
+# Entry number: 464
+1
+# Entry number: 465
+0
+# Entry number: 466
+1
+# Entry number: 467
+0
+# Entry number: 468
+1
+# Entry number: 469
+0
+# Entry number: 470
+1
+# Entry number: 471
+0
+# Entry number: 472
+1
+# Entry number: 473
+0
+# Entry number: 474
+1
+# Entry number: 475
+0
+# Entry number: 476
+1
+# Entry number: 477
+0
+# Entry number: 478
+1
+# Entry number: 479
+0
+# Entry number: 480
+1
+# Entry number: 481
+0
+# Entry number: 482
+1
+# Entry number: 483
+0
+# Entry number: 484
+1
+# Entry number: 485
+0
+# Entry number: 486
+1
+# Entry number: 487
+0
+# Entry number: 488
+1
+# Entry number: 489
+0
+# Entry number: 490
+1
+# Entry number: 491
+0
+# Entry number: 492
+1
+# Entry number: 493
+0
+# Entry number: 494
+1
+# Entry number: 495
+0
+# Entry number: 496
+1
+# Entry number: 497
+0
+# Entry number: 498
+1
+# Entry number: 499
+0
+# Entry number: 500
+1
+# Entry number: 501
+0
+# Entry number: 502
+1
+# Entry number: 503
+0
+# Entry number: 504
+1
+# Entry number: 505
+0
+# Entry number: 506
+1
+# Entry number: 507
+0
+# Entry number: 508
+1
+# Entry number: 509
+0
+# Entry number: 510
+1
+# Entry number: 511
+0
+# Entry number: 512
+1
+# Entry number: 513
+0
+# Entry number: 514
+1
+# Entry number: 515
+0
+# Entry number: 516
+1
+# Entry number: 517
+0
+# Entry number: 518
+1
+# Entry number: 519
+0
+# Entry number: 520
+1
+# Entry number: 521
+0
+# Entry number: 522
+1
+# Entry number: 523
+0
+# Entry number: 524
+1
+# Entry number: 525
+0
+# Entry number: 526
+1
+# Entry number: 527
+0
+# Entry number: 528
+1
+# Entry number: 529
+0
+# Entry number: 530
+1
+# Entry number: 531
+0
+# Entry number: 532
+1
+# Entry number: 533
+0
+# Entry number: 534
+1
+# Entry number: 535
+0
+# Entry number: 536
+1
+# Entry number: 537
+0
+# Entry number: 538
+1
+# Entry number: 539
+0
+# Entry number: 540
+1
+# Entry number: 541
+0
+# Entry number: 542
+1
+# Entry number: 543
+0
+# Entry number: 544
+1
+# Entry number: 545
+0
+# Entry number: 546
+1
+# Entry number: 547
+0
+# Entry number: 548
+1
+# Entry number: 549
+0
+# Entry number: 550
+1
+# Entry number: 551
+0
+# Entry number: 552
+1
+# Entry number: 553
+0
+# Entry number: 554
+1
+# Entry number: 555
+0
+# Entry number: 556
+1
+# Entry number: 557
+0
+# Entry number: 558
+1
+# Entry number: 559
+0
+# Entry number: 560
+1
+# Entry number: 561
+0
+# Entry number: 562
+1
+# Entry number: 563
+0
+# Entry number: 564
+1
+# Entry number: 565
+0
+# Entry number: 566
+1
+# Entry number: 567
+0
+# Entry number: 568
+1
+# Entry number: 569
+0
+# Entry number: 570
+1
+# Entry number: 571
+0
+# Entry number: 572
+1
+# Entry number: 573
+0
+# Entry number: 574
+1
+# Entry number: 575
+0
+# Entry number: 576
+1
+# Entry number: 577
+0
+# Entry number: 578
+1
+# Entry number: 579
+0
+# Entry number: 580
+1
+# Entry number: 581
+0
+# Entry number: 582
+1
+# Entry number: 583
+0
+# Entry number: 584
+1
+# Entry number: 585
+0
+# Entry number: 586
+1
+# Entry number: 587
+0
+# Entry number: 588
+1
+# Entry number: 589
+0
+# Entry number: 590
+1
+# Entry number: 591
+0
+# Entry number: 592
+1
+# Entry number: 593
+0
+# Entry number: 594
+1
+# Entry number: 595
+0
+# Entry number: 596
+1
+# Entry number: 597
+0
+# Entry number: 598
+1
+# Entry number: 599
+0
+# Entry number: 600
+1
+# Entry number: 601
+0
+# Entry number: 602
+1
+# Entry number: 603
+0
+# Entry number: 604
+1
+# Entry number: 605
+0
+# Entry number: 606
+1
+# Entry number: 607
+0
+# Entry number: 608
+1
+# Entry number: 609
+0
+# Entry number: 610
+1
+# Entry number: 611
+0
+# Entry number: 612
+1
+# Entry number: 613
+0
+# Entry number: 614
+1
+# Entry number: 615
+0
+# Entry number: 616
+1
+# Entry number: 617
+0
+# Entry number: 618
+1
+# Entry number: 619
+0
+# Entry number: 620
+1
+# Entry number: 621
+0
+# Entry number: 622
+1
+# Entry number: 623
+0
+# Entry number: 624
+1
+# Entry number: 625
+0
+# Entry number: 626
+1
+# Entry number: 627
+0
+# Entry number: 628
+1
+# Entry number: 629
+0
+# Entry number: 630
+1
+# Entry number: 631
+0
+# Entry number: 632
+1
+# Entry number: 633
+0
+# Entry number: 634
+1
+# Entry number: 635
+0
+# Entry number: 636
+1
+# Entry number: 637
+0
+# Entry number: 638
+1
+# Entry number: 639
+0
+# Entry number: 640
+1
+# Entry number: 641
+0
+# Entry number: 642
+1
+# Entry number: 643
+0
+# Entry number: 644
+1
+# Entry number: 645
+0
+# Entry number: 646
+1
+# Entry number: 647
+0
+# Entry number: 648
+1
+# Entry number: 649
+0
+# Entry number: 650
+1
+# Entry number: 651
+0
+# Entry number: 652
+1
+# Entry number: 653
+0
+# Entry number: 654
+1
+# Entry number: 655
+0
+# Entry number: 656
+1
+# Entry number: 657
+0
+# Entry number: 658
+1
+# Entry number: 659
+0
+# Entry number: 660
+1
+# Entry number: 661
+0
+# Entry number: 662
+1
+# Entry number: 663
+0
+# Entry number: 664
+1
+# Entry number: 665
+0
+# Entry number: 666
+1
+# Entry number: 667
+0
+# Entry number: 668
+1
+# Entry number: 669
+0
+# Entry number: 670
+1
+# Entry number: 671
+0
+# Entry number: 672
+1
+# Entry number: 673
+0
+# Entry number: 674
+1
+# Entry number: 675
+0
+# Entry number: 676
+1
+# Entry number: 677
+0
+# Entry number: 678
+1
+# Entry number: 679
+0
+# Entry number: 680
+1
+# Entry number: 681
+0
+# Entry number: 682
+1
+# Entry number: 683
+0
+# Entry number: 684
+1
+# Entry number: 685
+0
+# Entry number: 686
+1
+# Entry number: 687
+0
+# Entry number: 688
+1
+# Entry number: 689
+0
+# Entry number: 690
+1
+# Entry number: 691
+0
+# Entry number: 692
+1
+# Entry number: 693
+0
+# Entry number: 694
+1
+# Entry number: 695
+0
+# Entry number: 696
+1
+# Entry number: 697
+0
+# Entry number: 698
+1
+# Entry number: 699
+0
+# Entry number: 700
+1
+# Entry number: 701
+0
+# Entry number: 702
+1
+# Entry number: 703
+0
+# Entry number: 704
+1
+# Entry number: 705
+0
+# Entry number: 706
+1
+# Entry number: 707
+0
+# Entry number: 708
+1
+# Entry number: 709
+0
+# Entry number: 710
+1
+# Entry number: 711
+0
+# Entry number: 712
+1
+# Entry number: 713
+0
+# Entry number: 714
+1
+# Entry number: 715
+0
+# Entry number: 716
+1
+# Entry number: 717
+0
+# Entry number: 718
+1
+# Entry number: 719
+0
+# Entry number: 720
+1
+# Entry number: 721
+0
+# Entry number: 722
+1
+# Entry number: 723
+0
+# Entry number: 724
+1
+# Entry number: 725
+0
+# Entry number: 726
+1
+# Entry number: 727
+0
+# Entry number: 728
+1
+# Entry number: 729
+0
+# Entry number: 730
+1
+# Entry number: 731
+0
+# Entry number: 732
+1
+# Entry number: 733
+0
+# Entry number: 734
+1
+# Entry number: 735
+0
+# Entry number: 736
+1
+# Entry number: 737
+0
+# Entry number: 738
+1
+# Entry number: 739
+0
+# Entry number: 740
+1
+# Entry number: 741
+0
+# Entry number: 742
+1
+# Entry number: 743
+0
+# Entry number: 744
+1
+# Entry number: 745
+0
+# Entry number: 746
+1
+# Entry number: 747
+0
+# Entry number: 748
+1
+# Entry number: 749
+0
+# Entry number: 750
+1
+# Entry number: 751
+0
+# Entry number: 752
+1
+# Entry number: 753
+0
+# Entry number: 754
+1
+# Entry number: 755
+0
+# Entry number: 756
+1
+# Entry number: 757
+0
+# Entry number: 758
+1
+# Entry number: 759
+0
+# Entry number: 760
+1
+# Entry number: 761
+0
+# Entry number: 762
+1
+# Entry number: 763
+0
+# Entry number: 764
+1
+# Entry number: 765
+0
+# Entry number: 766
+1
+# Entry number: 767
+0
+# Entry number: 768
+1
+# Entry number: 769
+0
+# Entry number: 770
+1
+# Entry number: 771
+0
+# Entry number: 772
+1
+# Entry number: 773
+0
+# Entry number: 774
+1
+# Entry number: 775
+0
+# Entry number: 776
+1
+# Entry number: 777
+0
+# Entry number: 778
+1
+# Entry number: 779
+0
+# Entry number: 780
+1
+# Entry number: 781
+0
+# Entry number: 782
+1
+# Entry number: 783
+0
+# Entry number: 784
+1
+# Entry number: 785
+0
+# Entry number: 786
+1
+# Entry number: 787
+0
+# Entry number: 788
+1
+# Entry number: 789
+0
+# Entry number: 790
+1
+# Entry number: 791
+0
+# Entry number: 792
+1
+# Entry number: 793
+0
+# Entry number: 794
+1
+# Entry number: 795
+0
+# Entry number: 796
+1
+# Entry number: 797
+0
+# Entry number: 798
+1
+# Entry number: 799
+0
+# Entry number: 800
+1
+# Entry number: 801
+0
+# Entry number: 802
+1
+# Entry number: 803
+0
+# Entry number: 804
+1
+# Entry number: 805
+0
+# Entry number: 806
+1
+# Entry number: 807
+0
+# Entry number: 808
+1
+# Entry number: 809
+0
+# Entry number: 810
+1
+# Entry number: 811
+0
+# Entry number: 812
+1
+# Entry number: 813
+0
+# Entry number: 814
+1
+# Entry number: 815
+0
+# Entry number: 816
+1
+# Entry number: 817
+0
+# Entry number: 818
+1
+# Entry number: 819
+0
+# Entry number: 820
+1
+# Entry number: 821
+0
+# Entry number: 822
+1
+# Entry number: 823
+0
+# Entry number: 824
+1
+# Entry number: 825
+0
+# Entry number: 826
+1
+# Entry number: 827
+0
+# Entry number: 828
+1
+# Entry number: 829
+0
+# Entry number: 830
+1
+# Entry number: 831
+0
+# Entry number: 832
+1
+# Entry number: 833
+0
+# Entry number: 834
+1
+# Entry number: 835
+0
+# Entry number: 836
+1
+# Entry number: 837
+0
+# Entry number: 838
+1
+# Entry number: 839
+0
+# Entry number: 840
+1
+# Entry number: 841
+0
+# Entry number: 842
+1
+# Entry number: 843
+0
+# Entry number: 844
+1
+# Entry number: 845
+0
+# Entry number: 846
+1
+# Entry number: 847
+0
+# Entry number: 848
+1
+# Entry number: 849
+0
+# Entry number: 850
+1
+# Entry number: 851
+0
+# Entry number: 852
+1
+# Entry number: 853
+0
+# Entry number: 854
+1
+# Entry number: 855
+0
+# Entry number: 856
+1
+# Entry number: 857
+0
+# Entry number: 858
+1
+# Entry number: 859
+0
+# Entry number: 860
+1
+# Entry number: 861
+0
+# Entry number: 862
+1
+# Entry number: 863
+0
+# Entry number: 864
+1
+# Entry number: 865
+0
+# Entry number: 866
+1
+# Entry number: 867
+0
+# Entry number: 868
+1
+# Entry number: 869
+0
+# Entry number: 870
+1
+# Entry number: 871
+0
+# Entry number: 872
+1
+# Entry number: 873
+0
+# Entry number: 874
+1
+# Entry number: 875
+0
+# Entry number: 876
+1
+# Entry number: 877
+0
+# Entry number: 878
+1
+# Entry number: 879
+0
+# Entry number: 880
+1
+# Entry number: 881
+0
+# Entry number: 882
+1
+# Entry number: 883
+0
+# Entry number: 884
+1
+# Entry number: 885
+0
+# Entry number: 886
+1
+# Entry number: 887
+0
+# Entry number: 888
+1
+# Entry number: 889
+0
+# Entry number: 890
+1
+# Entry number: 891
+0
+# Entry number: 892
+1
+# Entry number: 893
+0
+# Entry number: 894
+1
+# Entry number: 895
+0
+# Entry number: 896
+1
+# Entry number: 897
+0
+# Entry number: 898
+1
+# Entry number: 899
+0
+# Entry number: 900
+1

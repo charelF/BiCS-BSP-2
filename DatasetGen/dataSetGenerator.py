@@ -47,12 +47,12 @@ def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noi
     """ Inspired by a similar application from Benjamin Jahic
     """
     with open(filename, "w") as file:
-        file.write("# Dataset Dimensions: {}\n".format(dataset.shape))
+        file.write("## Dataset Dimensions: {}\n".format(dataset.shape))
         file.write("# Filename: {}\n".format(filename))
         file.write("# Description: {}\n".format(description))
         file.write("# MatrixParam: {}\n".format(matrixParam))
         file.write("# SubMatrixParam: {}\n".format(subMatrixParam))
-        file.write("# NoiseParam: {}\n".format(noiseParam))
+        file.write("# NoiseParam: {}##\n".format(noiseParam))
 
         count = 1
         for array in dataset:
@@ -65,6 +65,10 @@ def loadDataset(filename):
     dataset = np.loadtxt(filename)
 
     text = open(filename).read()
+
+    print("\n\n" + re.search("##.*##", text, flags=re.DOTALL).group(0) + "\n\n")
+    # this prints the description and additional information
+
     regEx = re.search("[(]\d+, \d+, \d+[)]", text).group(0)
     # regEx is all tuples with 3 decimals found in the text
     valueFinder = re.findall("\d+", regEx)
@@ -76,7 +80,7 @@ def loadDataset(filename):
     dataset = dataset.reshape(dimensions)
     return dataset
 
-def loadDatasetDescription(filename):
-    text = open(filename).read()
-    regEx = re.search("Description: .*", text).group(0)
-    return regEx
+# def loadDatasetDescription(filename):
+#     text = open(filename).read()
+#     regEx = re.search("##.*##", text, flags=re.DOTALL).group(0)
+#     return regEx
