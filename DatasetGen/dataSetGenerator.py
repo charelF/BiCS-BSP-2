@@ -28,7 +28,7 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
     inputSet = np.array(inputSet)
     # print(inputSet) --> [[[000][010]...] [[111]...]] ...] class: numpy.ndarray
     # print(inputSet.shape) --> (size, column, row), ex: (2000, 32, 32)
-    saveDataset(inputFileName, inputSet, description)
+    saveDataset(inputSet, inputFileName, description, matrixParam, subMatrixParam, noiseParam)
 
 
     # Generation of output set
@@ -40,19 +40,23 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
     outputSet = outputSet.reshape(size, 1, 1)
     # print(outputSet) --> [[[0]] [[1]] [[0] [[1]] ...]
     # print(outputSet.shape) --> (size,1,1), ex: (2000, 1, 1)
-    saveDataset(outputFileName, outputSet, description)
+    saveDataset(outputSet, outputFileName, description, matrixParam, subMatrixParam, noiseParam)
 
 
-def saveDataset(filename, dataset, description):
+def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noiseParam):
     """ Inspired by a similar application from Benjamin Jahic
     """
     with open(filename, "w") as file:
-        file.write("#________________Array info: {}\n".format(dataset.shape))
-        file.write("#________________Description: {}\n".format(description))
+        file.write("# Dataset Dimensions: {}\n".format(dataset.shape))
+        file.write("# Filename: {}\n".format(filename))
+        file.write("# Description: {}\n".format(description))
+        file.write("# MatrixParam: {}\n".format(matrixParam))
+        file.write("# SubMatrixParam: {}\n".format(subMatrixParam))
+        file.write("# NoiseParam: {}\n".format(noiseParam))
 
         count = 1
         for array in dataset:
-            file.write("#________________Entry number: {}\n".format(count))
+            file.write("# Entry number: {}\n".format(count))
             np.savetxt(file, array, fmt="%0u")
             count += 1
 
@@ -65,9 +69,11 @@ def loadDataset(filename):
     # regEx is all tuples with 3 decimals found in the text
     valueFinder = re.findall("\d+", regEx)
     # valueFinder is a list of all decimals in regEx
+    # these values are all of type string, so we have to convert them to int's
     dimensions = tuple(int(i) for i in valueFinder)
-
-    dataset = dataset.reshape((*dimensions))
+    # we have to explicity declare it as tuple, as it otherwhise is
+    # a generator object.
+    dataset = dataset.reshape(dimensions)
     return dataset
 
 def loadDatasetDescription(filename):
