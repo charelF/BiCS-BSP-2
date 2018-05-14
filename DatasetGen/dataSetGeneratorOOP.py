@@ -6,53 +6,64 @@ os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 from matrixGenerator import *
 import re  # for the loadDataset
 
+class Dataset:
+    def __init__(self, size, matrixParam, subMatrixParam, noiseParam):
+        self.size = size
 
-def createDataset(size, filename, description, matrixParam, subMatrixParam, noiseParam):
-    outputFileName = filename + "_output" + ".txt"
-    inputFileName = filename + "_input" + ".txt"
+    def create():
+        # algorithm to create inputSet
+        # algorithm to create outputSet
+        return inputSet, outputSet
 
-    # Generation of input set
-    inputSet=[]
-    for i in range(size):
-        if i % 2:
-            temporaryMatrix = FeatureMatrix(*matrixParam)
-            temporaryMatrix.fillMatrixWithSubMatrix(*subMatrixParam)
-        else:
-            temporaryMatrix = EmptyMatrix(*matrixParam)
+    def save(dataset, filename, description):
 
-        if noiseParam:
-            temporaryMatrix.addBinaryNoise(*noiseParam)
+    def load(filename):
 
-        inputSet.append(temporaryMatrix.content)
-
-    inputSet = np.array(inputSet)
-    # print(inputSet) --> [[[000][010]...] [[111]...]] ...] class: numpy.ndarray
-    # print(inputSet.shape) --> (size, column, row), ex: (2000, 32, 32)
-    saveDataset(inputSet, inputFileName, description, matrixParam, subMatrixParam, noiseParam)
+class InputSet(Dataset):
+    def __init__(matrixParam, subMatrixParam, noiseParam):
+        self.matrixParam = matrixParam
+        self.subMatrixParam = subMatrixParam
+        self.noiseParam = noiseParam
 
 
-    # Generation of output set
-    outputSet=[i % 2 for i in range(size)]
-    # print(outputSet) --> [0, 1, 0, 1, 0, 1, 0, ...] class: list
-    outputSet = np.array(outputSet)
-    # print(outputSet) --> [0 1 0 1 0 1 ...] class: nump.ndarray
-    # print(outputSet.shape) --> (size,)
-    outputSet = outputSet.reshape(size, 1, 1)
-    # print(outputSet) --> [[[0]] [[1]] [[0] [[1]] ...]
-    # print(outputSet.shape) --> (size,1,1), ex: (2000, 1, 1)
-    saveDataset(outputSet, outputFileName, description, matrixParam, subMatrixParam, noiseParam)
+class OutputSet(Dataset):
+    pass
 
 
-def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noiseParam):
-    """ Inspired by a similar application from Benjamin Jahic
-    """
+
+class Dataset:
+    def __init__(matrixParam, subMatrixParam, noiseParam):
+        self.matrixParam = matrixParam
+        self.subMatrixParam = subMatrixParam
+        self.noiseParam = noiseParam
+
+    def create(size):
+        inputSet=[]
+        for i in range(size):
+            if i % 2:
+                temporaryMatrix = FeatureMatrix(*self.matrixParam)
+                temporaryMatrix.fillMatrixWithSubMatrix(*self.subMatrixParam)
+            else:
+                temporaryMatrix = EmptyMatrix(*self.matrixParam)
+            temporaryMatrix.addBinaryNoise(*self.noiseParam)
+            inputSet.append(temporaryMatrix.content)
+        inputSet = np.array(inputSet)
+
+        outputSet=[i % 2 for i in range(size)]
+        outputSet = np.array(outputSet)
+        outputSet = outputSet.reshape(size, 1, 1)
+
+        return inputSet, outputSet
+
+
+def save(dataset, filename, description):
     with open(filename, "w") as file:
         file.write("## Dataset Dimensions: {}\n".format(dataset.shape))
         file.write("# Filename: {}\n".format(filename))
         file.write("# Description: {}\n".format(description))
-        file.write("# MatrixParam: {}\n".format(matrixParam))
-        file.write("# SubMatrixParam: {}\n".format(subMatrixParam))
-        file.write("# NoiseParam: {}##\n".format(noiseParam))
+        file.write("# MatrixParam: {}\n".format(self.matrixParam))
+        file.write("# SubMatrixParam: {}\n".format(self.subMatrixParam))
+        file.write("# NoiseParam: {}##\n".format(self.noiseParam))
 
         count = 1
         for matrix in dataset:
@@ -61,7 +72,7 @@ def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noi
             count += 1
 
 
-def loadDataset(filename):
+def load(filename):
     # description
     text = open(filename).read()
 
