@@ -80,7 +80,7 @@ def loadDataset(filename):
     # dimensionValueFinder finds all integers, as we give it the previous re,
     # it gives us a list of strings, each string contains a decimal
 
-    dimensions = tuple(int(i) for i in valueFinder)
+    dimensions = tuple(int(i) for i in dimensionValueFinder)
     # We convert the strings of the previous list into integers using list
     # comprehension. We have to declare the final object an int, as it
     # otherwhise is a generator object

@@ -11,11 +11,25 @@ from keras.wrappers.scikit_learn import KerasClassifier  # k-fcv
 from sklearn.model_selection import cross_val_score  # k-fcv
 
 # import dataset
-dataset = pd.read_csv('Churn_Modelling.csv')
+dataset = pd.read_csv('test.csv')
+#dataset = pd.read_csv('Churn_Modelling.csv')
+
+a = 13
+""" a is the length of the input matrix.
+    There is a problem: normally the NN should only put out a good accuracy (80%)
+    When a is 1024, but in our case it does it for all kinds of values that a
+    can have, which is strange and unwanted
+
+    POSSIBLE CAUSE we left out the one-hot encoding and other data transformations
+    which should technically not be neede but maybe they are and that causes the error
+"""
+b= 0
+#b is only needed for the churn modeling, where we set b to 3
+#b=3
 
 # sorting the data
-X = dataset.iloc[:, 3:13].values  # x = input matrix
-y = dataset.iloc[:, 13].values  # y = expected output vector
+X = dataset.iloc[:, b:a].values  # x = input matrix
+y = dataset.iloc[:, a].values  # y = expected output vector
 
 # encoding the dataset
 # this part is intentionally left out as it is used to encode strings and non
@@ -36,13 +50,13 @@ X_test = sc.transform(X_test)
 # Neural Network implementation with keras
 classifier = Sequential()
 
-classifier.add(Dense(6,
+classifier.add(Dense(512,
                      kernel_initializer='uniform',
                      activation='relu',
-                     input_dim=11))  # input layer + first hidden layer
+                     input_dim=a))  # input layer + first hidden layer
 classifier.add(Dropout(p=0.1))
 
-classifier.add(Dense(6,
+classifier.add(Dense(128,
                      kernel_initializer='uniform',
                      activation='relu'))  # 2nd hidden layer
 classifier.add(Dropout(p=0.1))
@@ -77,13 +91,13 @@ new_prediction = (new_prediction > 0.5)
 
 
 def build_classifier():
-    classifier.add(Dense(6,
+    classifier.add(Dense(512,
                          kernel_initializer='uniform',
                          activation='relu',
-                         input_dim=11))  # input layer + first hidden layer
+                         input_dim=a))  # input layer + first hidden layer
     classifier.add(Dropout(p=0.1))
 
-    classifier.add(Dense(6,
+    classifier.add(Dense(128,
                          kernel_initializer='uniform',
                          activation='relu'))  # 2nd hidden layer
     classifier.add(Dropout(p=0.1))
