@@ -18,12 +18,15 @@ outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
 
 
 # reshaping the 2D matrices (numpy.ndarray) into a 1D list (numpy.ndarray)
-# ex: (3000, 32, 32) --> (3000, 1024)
+# reshaping the inputData from (size, col, row) to (size, len), with
+# len being col*row and thus the lenght of the list
 inputDataFlat = inputData.reshape(inputData.shape[0],
                                   inputData.shape[1]*inputData.shape[2])
 
+# reshaping the outputData from (size, col, row) to (size, len)
 outputDataFlat = outputData.reshape(outputData.shape[0],
                                     outputData.shape[1]*outputData.shape[2])
+
 
 
 # hyperparameter optimization
