@@ -46,7 +46,7 @@ def neuralNetworkStructure(dropout1, dropout2, dropout3, dropout4,
     model = Sequential()
 
     # input layer
-    model.add(Dense(units=inputData.shape[0],
+    model.add(Dense(units=numNeurons0,
                     activation="relu",
                     input_dim=inputData.shape[1]*inputData.shape[2]))
 
@@ -99,6 +99,7 @@ parameters = {"dropout1":[True, False],
               "dense4":[True, False],
               "batch_size":[10, 30, 100, 300],
               "epochs":[10, 30, 100, 300],
+              "numNeurons0":[2000, 1000, 500],
               "numNeurons1":[2000, 1000, 500],
               "numNeurons2":[500, 250, 100],
               "numNeurons3":[100, 50, 25],

@@ -45,7 +45,7 @@ def neuralNetworkStructure(dropoutRate1, dropoutRate2, activationInput,
     model = Sequential()
 
     # input layer
-    model.add(Dense(units=inputData.shape[0],
+    model.add(Dense(units=1000,
                     activation=activationInput,
                     input_dim=inputData.shape[1]*inputData.shape[2],
                     kernel_initializer=kernelInit))

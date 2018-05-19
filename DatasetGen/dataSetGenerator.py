@@ -1,4 +1,5 @@
 # decide whether to write dataset or dataSet and generalize this in program and report
+# [B-21 Imports]
 import os
 os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 # somehow the files think they are in another directory than they really are.
@@ -7,10 +8,12 @@ from matrixGenerator import *
 import re  # for the loadDataset
 
 
+# [B-22 createDataset]
 def createDataset(size, filename, description, matrixParam, subMatrixParam, noiseParam):
     outputFileName = filename + "_output" + ".txt"
     inputFileName = filename + "_input" + ".txt"
 
+    # [B-22A creation of inputSet]
     # Generation of input set
     inputSet=[]
     for i in range(size):
@@ -31,6 +34,7 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
     saveDataset(inputSet, inputFileName, description, matrixParam, subMatrixParam, noiseParam)
 
 
+    # [B-22B creation of outputSet]
     # Generation of output set
     outputSet=[i % 2 for i in range(size)]
     # print(outputSet) --> [0, 1, 0, 1, 0, 1, 0, ...] class: list
@@ -43,6 +47,7 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
     saveDataset(outputSet, outputFileName, description, matrixParam, subMatrixParam, noiseParam)
 
 
+# [B-23 saveDataset]
 def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noiseParam):
     """ Inspired by a similar application from Benjamin Jahic
     """
@@ -61,15 +66,18 @@ def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noi
             count += 1
 
 
+# [B-24 loadDataset]
 def loadDataset(filename):
     # description
     text = open(filename).read()
 
+    # [B-24A print description]
     print("\n\n" + re.search("##.*##", text, flags=re.DOTALL).group(0) + "\n\n")
     # this prints the description and additional information
     # the DOTALL flag of the re is used to find multiline regular ex. hits
     # our regular expression searches for anything between two hashes
 
+    # [B-24B return dimension tuple]
     # dataset
     dataset = np.loadtxt(filename)
 

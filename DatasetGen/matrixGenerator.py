@@ -1,3 +1,4 @@
+# [B-11 Imports]
 import os
 os.chdir("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 # somehow the files think they are in another directory than they really are.
@@ -8,10 +9,12 @@ import random   # module used to find random integers
 # import scipy.misc   # module used to export matrix as image
 
 
+# [B-12 Matrix Class]
 class Matrix:
     def __init__(self, column, row):
         self.content = np.zeros((column, row), dtype=np.int8)
 
+    # [B-12A addBinaryNoise]
     def addBinaryNoise(self, noiseDensity, modifiedLocations):
         """ The function addBinaryNoise ads and subtracts random values from
             the matrix, but does not add new values: It replaces certain 1's
@@ -51,9 +54,12 @@ class Matrix:
         return self.content
 
 
+# [B-13 EmptyMatrix]
 class EmptyMatrix(Matrix):
     pass
 
+
+# [B-14 FeatureMatrix]
 class FeatureMatrix(Matrix):
         def fillMatrixWithSubMatrix(self, columnSubMatrix, rowSubMatrix):
             """ The function generates two matrices, namely the matrix M of size

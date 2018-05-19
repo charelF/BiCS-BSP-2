@@ -1,37 +1,45 @@
+# [B-31: Imports]
 # personal module imports
 import sys
 sys.path.append("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
 import dataSetGenerator as dsg
+# this also imports modules imported in the dataSetGenerator, such as numpy
 import glob
-
 
 # keras imports
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
 
 
+# [B-32: Data]
 # loading the data
 inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
 outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
 
-
-# reshaping the 2D matrices (numpy.ndarray) into a 1D list (numpy.ndarray)
 # reshaping the inputData from (size, col, row) to (size, len), with
-# len being col*row and thus the lenght of the list
+# len being col*row
 inputDataFlat = inputData.reshape(inputData.shape[0],
                                   inputData.shape[1]*inputData.shape[2])
 
 # reshaping the outputData from (size, col, row) to (size, len)
 outputDataFlat = outputData.reshape(outputData.shape[0],
                                     outputData.shape[1]*outputData.shape[2])
+# we have now flattend our matrices by concatenating their rows.
 
 
+# [B-33: Artificial Neural Network]
 # neural network
 # initialised as Sequential model
 model = Sequential()
 
+# [B-33A: add method: Input Layer and Hidden layers]
 # input layer
-model.add(Dense(units=1000, activation="relu", input_dim=inputDataFlat.shape[1]))
+model.add(Dense(units=1000,
+                activation="relu",
+                input_dim=inputDataFlat.shape[1]))
+
+# dropout layer
+model.add(Dropout(rate=0.3))
 
 # hidden layer
 model.add(Dense(units=250, activation="relu"))
@@ -39,6 +47,7 @@ model.add(Dense(units=250, activation="relu"))
 # output layer
 model.add(Dense(units=1, activation="sigmoid"))
 
+# [B-33B: Compile and fit method]
 # compilation of the network
 model.compile(optimizer="adam",
               loss="binary_crossentropy",
@@ -48,9 +57,9 @@ model.compile(optimizer="adam",
 model.summary()
 
 # start of the training / fitting process
-model.fit(inputDataFlat,
-          outputDataFlat,
-          epochs=30,
+model.fit(x=inputDataFlat,
+          y=outputDataFlat,
+          epochs=100,
           batch_size=32,
           validation_split=0.2)
 
