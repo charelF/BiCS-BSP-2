@@ -35,12 +35,6 @@ def neuralNetworkStructure(dropout1, dropout2, dropout3, dropout4,
                            dense1, dense2, dense3, dense4,
                            numNeurons1, numNeurons2, numNeurons3, numNeurons4):
 
-    # print arguments
-    print("in this run, the following arguments are used:\n",
-          dropout1, dropout2, dropout3, dropout4,
-          dense1, dense2, dense3, dense4,
-          numNeurons1, numNeurons2, numNeurons3, numNeurons4)
-
     # initiation of the network
     model = Sequential()
 

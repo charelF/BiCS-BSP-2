@@ -1,11 +1,4 @@
 # [B-41: Imports]
-# import sys
-# import os
-# sys.path.append(os.path.realpath(".."))
-# sys.path.append(os.path.realpath("\\Dataset_Generator"))
-# sys.path.append(os.path.realpath("/Dataset_Generator"))
-#
-# from Dataset_Generator import dataSetGenerator as dsg
 import DatasetGenerator as dsg
 import numpy as np
 import glob
@@ -16,8 +9,19 @@ from keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 
 # [B-42: Data]
 # loading the data
-inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
-outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+
+try:
+    inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+    outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+except IndexError:
+    try:
+        import os
+        os.chdir(os.path.realpath("Project"))
+        inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+        outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+    except IndexError:
+        print("there are probably no datasets in the project folder")
+
 # reshaping the data
 inputDataShape = inputData.shape
 # reshaping the inputData from (size, col, row) to (size, col, row, channels)
@@ -66,3 +70,16 @@ model.fit(x=inputData,
 # used to keep the console window open after the network is finished training
 # so we can read the final accuracy of the network
 keepOpen=input()
+
+
+# ----------------- unused, but sometimes needed while debugging ---------------
+
+# import sys
+# import os
+# sys.path.append(os.path.realpath(".."))
+# sys.path.append(os.path.realpath("\\Dataset_Generator"))
+# sys.path.append(os.path.realpath("/Dataset_Generator"))
+# import os
+# os.chdir(os.path.realpath("Project"))
+#
+# from Dataset_Generator import dataSetGenerator as dsg

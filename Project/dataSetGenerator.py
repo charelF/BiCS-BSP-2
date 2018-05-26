@@ -1,9 +1,4 @@
 # [B-21 Imports]
-# import sys
-# import os
-# sys.path.append(os.path.realpath(".."))
-# from Dataset_Generator import matrixGenerator as mg
-
 import MatrixGenerator as mg
 import numpy as np
 import re  # for the loadDataset
@@ -11,63 +6,54 @@ import re  # for the loadDataset
 
 # [B-22 createDataset]
 def createDataset(size, filename, description, matrixParam, subMatrixParam, noiseParam):
-    outputFileName = filename + "_output" + ".txt"
+
+    # [B-22A inputSet]
     inputFileName = filename + "_input" + ".txt"
+    with open(inputFileName, "w") as file:
+        # this creates or opens a file called inputFileName, sets it to write
+        # mode, and assigns the variable file to it
 
-    # [B-22A creation of inputSet]
-    # Generation of input set
-    inputSet=[]
-    for i in range(size):
-        if i % 2:
-            temporaryMatrix = mg.FeatureMatrix(*matrixParam)
-            temporaryMatrix.fillMatrixWithSubMatrix(*subMatrixParam)
-        else:
-            temporaryMatrix = mg.EmptyMatrix(*matrixParam)
+        # we write the dimension in the form (size, col, row); this is
+        # necessary, so the loadDataset can find out the shape of the dataaset
+        file.write("## Dataset Dimensions: {}\n".format(tuple((size, *matrixParam))))
 
-        if noiseParam:
-            temporaryMatrix.addBinaryNoise(*noiseParam)
-
-        inputSet.append(temporaryMatrix.content)
-
-    inputSet = np.array(inputSet)
-    # print(inputSet) --> [[[000][010]...] [[111]...]] ...] class: numpy.ndarray
-    # print(inputSet.shape) --> (size, column, row), ex: (2000, 32, 32)
-    saveDataset(inputSet, inputFileName, description, matrixParam, subMatrixParam, noiseParam)
-
-
-    # [B-22B creation of outputSet]
-    # Generation of output set
-    outputSet=[i % 2 for i in range(size)]
-    # print(outputSet) --> [0, 1, 0, 1, 0, 1, 0, ...] class: list
-    outputSet = np.array(outputSet)
-    # print(outputSet) --> [0 1 0 1 0 1 ...] class: nump.ndarray
-    # print(outputSet.shape) --> (size,)
-    outputSet = outputSet.reshape(size, 1, 1)
-    # print(outputSet) --> [[[0]] [[1]] [[0] [[1]] ...]
-    # print(outputSet.shape) --> (size,1,1), ex: (2000, 1, 1)
-    saveDataset(outputSet, outputFileName, description, matrixParam, subMatrixParam, noiseParam)
-
-
-# [B-23 saveDataset]
-def saveDataset(dataset, filename, description, matrixParam, subMatrixParam, noiseParam):
-    """ Inspired by a similar application from Benjamin Jahic
-    """
-    with open(filename, "w") as file:
-        file.write("## Dataset Dimensions: {}\n".format(dataset.shape))
+        # we also write some unecessary but helpful information
         file.write("# Filename: {}\n".format(filename))
         file.write("# Description: {}\n".format(description))
         file.write("# MatrixParam: {}\n".format(matrixParam))
         file.write("# SubMatrixParam: {}\n".format(subMatrixParam))
         file.write("# NoiseParam: {}##\n".format(noiseParam))
 
-        count = 1
-        for matrix in dataset:
-            file.write("# Entry number: {}\n".format(count))
-            np.savetxt(file, matrix, fmt="%1u")
-            count += 1
+        for i in range(size):
+            if i % 2:
+                temporaryMatrix = mg.FeatureMatrix(*matrixParam)
+                temporaryMatrix.fillMatrixWithSubMatrix(*subMatrixParam)
+            else:
+                temporaryMatrix = mg.EmptyMatrix(*matrixParam)
+
+            temporaryMatrix.addBinaryNoise(*noiseParam)
+
+            file.write("# Entry number: {}\n".format(i))
+            np.savetxt(file, temporaryMatrix.content, fmt="%1u")
 
 
-# [B-24 loadDataset]
+    # [B-22B outputset]
+    outputFileName = filename + "_output" + ".txt"
+    with open(outputFileName, "w") as file:
+        file.write("## Dataset Dimensions: {}\n".format(tuple((size, 1, 1))))
+        file.write("# Filename: {}\n".format(filename))
+        file.write("# Description: {}\n".format(description))
+        file.write("# MatrixParam: {}\n".format(matrixParam))
+        file.write("# SubMatrixParam: {}\n".format(subMatrixParam))
+        file.write("# NoiseParam: {}##\n".format(noiseParam))
+
+        for i in range(size):
+            file.write("# Entry number: {}\n".format(i))
+            np.savetxt(file, np.array([i%2]) , fmt="%1u")
+
+
+
+# [B-23 loadDataset]
 def loadDataset(filename):
     # description
     text = open(filename).read()
@@ -98,8 +84,3 @@ def loadDataset(filename):
     # we can finally reshape our dataset to the dimensions it was saved it
 
     return dataset
-
-# def loadDatasetDescription(filename):
-#     text = open(filename).read()
-#     regEx = re.search("##.*##", text, flags=re.DOTALL).group(0)
-#     return regEx

@@ -9,8 +9,19 @@ from keras.layers import Dense, Dropout
 
 # [B-32: Data]
 # loading the data
-inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
-outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+try:
+    inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+    outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+except IndexError:
+    try:
+        # first error source: in my case, sometimes the python script searched
+        # in the wrong directories
+        import os
+        os.chdir(os.path.realpath("Project"))
+        inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+        outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+    except IndexError:  # second error source
+        print("there are probably no datasets in the project folder")
 
 # reshaping the inputData from (size, col, row) to (size, len), with
 # len being col*row
@@ -21,7 +32,6 @@ inputDataFlat = inputData.reshape(inputData.shape[0],
 outputDataFlat = outputData.reshape(outputData.shape[0],
                                     outputData.shape[1]*outputData.shape[2])
 # we have now flattend our matrices by concatenating their rows.
-
 
 # [B-33: Artificial Neural Network]
 # neural network

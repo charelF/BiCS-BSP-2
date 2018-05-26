@@ -4,6 +4,11 @@ from DatasetGenerator import *
 # for a dataset. In the end, if all values are valid, the dataset is created.
 
 # this tool adds no functionality to the main functions and classes of the BSP
+
+def test():
+    createDataset(50, "test_auto", "none", (32,32), (16, 16), (25, 2))
+
+
 print("first choose a name to give to the dataset")
 filename = str(input("name of the dataset: "))
 
@@ -36,6 +41,3 @@ else:
     print("not created")
 
 keepopen = input()
-
-
-

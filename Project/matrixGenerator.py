@@ -103,3 +103,7 @@ class FeatureMatrix(Matrix):
 # b=FeatureMatrix(4,4)
 # b.fillMatrixWithSubMatrix(3,3)
 # print(b.content)
+
+# c=EmptyMatrix(4, 4)
+# print(c.content)
+# print(c.shape())
