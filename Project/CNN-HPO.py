@@ -1,7 +1,6 @@
 ## personal module imports
-import sys
-sys.path.append("D:\\GOOGLE DRIVE\\School\\sem-2-2018\\BSP2\\BiCS-BSP-2\\DatasetGen")
-import dataSetGenerator as dsg
+import DatasetGenerator as dsg
+import numpy as np
 import glob
 
 

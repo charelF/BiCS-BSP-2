@@ -1,5 +1,12 @@
 # [B-41: Imports]
-import dataSetGenerator as dsg
+# import sys
+# import os
+# sys.path.append(os.path.realpath(".."))
+# sys.path.append(os.path.realpath("\\Dataset_Generator"))
+# sys.path.append(os.path.realpath("/Dataset_Generator"))
+#
+# from Dataset_Generator import dataSetGenerator as dsg
+import DatasetGenerator as dsg
 import numpy as np
 import glob
 # keras imports

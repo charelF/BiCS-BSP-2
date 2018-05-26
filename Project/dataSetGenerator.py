@@ -1,5 +1,11 @@
 # [B-21 Imports]
-from matrixGenerator import *
+# import sys
+# import os
+# sys.path.append(os.path.realpath(".."))
+# from Dataset_Generator import matrixGenerator as mg
+
+import MatrixGenerator as mg
+import numpy as np
 import re  # for the loadDataset
 
 
@@ -13,10 +19,10 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
     inputSet=[]
     for i in range(size):
         if i % 2:
-            temporaryMatrix = FeatureMatrix(*matrixParam)
+            temporaryMatrix = mg.FeatureMatrix(*matrixParam)
             temporaryMatrix.fillMatrixWithSubMatrix(*subMatrixParam)
         else:
-            temporaryMatrix = EmptyMatrix(*matrixParam)
+            temporaryMatrix = mg.EmptyMatrix(*matrixParam)
 
         if noiseParam:
             temporaryMatrix.addBinaryNoise(*noiseParam)

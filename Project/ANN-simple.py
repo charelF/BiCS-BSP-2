@@ -1,8 +1,7 @@
 # [B-31: Imports]
-import dataSetGenerator as dsg
-import glob
+import DatasetGenerator as dsg
 import numpy as np
-
+import glob
 # keras imports
 from keras.models import Sequential
 from keras.layers import Dense, Dropout
