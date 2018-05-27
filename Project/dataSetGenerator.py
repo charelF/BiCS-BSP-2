@@ -55,27 +55,27 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
 
 # [B-23 loadDataset]
 def loadDataset(filename):
+
     # description
     text = open(filename).read()
 
-    # [B-24A print description]
     print("\n\n" + re.search("##.*##", text, flags=re.DOTALL).group(0) + "\n\n")
     # this prints the description and additional information
     # the DOTALL flag of the re is used to find multiline regular ex. hits
     # our regular expression searches for anything between two hashes
 
-    # [B-24B return dimension tuple]
+
     # dataset
     dataset = np.loadtxt(filename)
 
-    dimensionTupleFinder = re.search("[(]\d+, \d+, \d+[)]", text).group(0)
+    dimensionTupleFinder = re.search("[(]\d+, \d+, \d+[)]", text)
     # dimensionTupleFinder finds all tuples containing 3 decimals
 
-    dimensionValueFinder = re.findall("\d+", dimensionTupleFinder)
-    # dimensionValueFinder finds all integers, as we give it the previous re,
+    numberInTupleFinder = re.findall("\d+", dimensionTupleFinder.group(0))
+    # numberInTupleFinder finds all integers, as we give it the previous re,
     # it gives us a list of strings, each string contains a decimal
 
-    dimensions = tuple(int(i) for i in dimensionValueFinder)
+    dimensions = tuple(int(number) for number in numberInTupleFinder)
     # We convert the strings of the previous list into integers using list
     # comprehension. We have to declare the final object an int, as it
     # otherwhise is a generator object
