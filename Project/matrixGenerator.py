@@ -41,7 +41,7 @@ class Matrix:
         """
 
 
-        intervalMin = max(int(50 * ((noiseDensity / 2) / 100)), 0)
+        intervalMin = max(int(0.5 * (noiseDensity / 2)), 0)
         intervalMax = 50 + intervalMin
 
         randomMatrix = np.random.randint(low=intervalMin,
