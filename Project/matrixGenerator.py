@@ -48,8 +48,8 @@ class Matrix:
                                          high=intervalMax,
                                          size=self.content.shape)
 
-        randomMatrix = np.where(randomMatrix < 50, 0, randomMatrix)
-        randomMatrix = np.where(randomMatrix >= 50, 1, randomMatrix)
+        randomMatrix = np.where(randomMatrix <= 50, 0, randomMatrix)
+        randomMatrix = np.where(randomMatrix > 50, 1, randomMatrix)
 
         if modifiedLocations == 0:
             self.content += randomMatrix
@@ -63,8 +63,6 @@ class Matrix:
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 0, self.content)
 
-        # return self.content
-        # not needed
 
 
 # [B-13 EmptyMatrix]
@@ -82,9 +80,9 @@ class FeatureMatrix(Matrix):
 
                 Parameters
                 ----------
-                columnSubMatrix : int
+                columnSubMatrix : int > 0
                     column size of the matrix SubMatrix.
-                rowSubMatrix : int
+                rowSubMatrix : int > 0
                     row size of the matrix SubMatrix.
 
                 Returns
@@ -103,17 +101,4 @@ class FeatureMatrix(Matrix):
 
             self.content[columnCoordinates:(columnCoordinates + columnSubMatrix),
                          rowCoordinates:(rowCoordinates + rowSubMatrix)] = subMatrix
-            # the ":" is use to index the list: a=[1,2,3,4] --> a[0:2] = [1,2,3]
-
-            # return self.content
-
-# a=Matrix(30,30)
-# a.addBinaryNoise(166567,2)
-# print(a.content)
-# b=FeatureMatrix(4,4)
-# b.fillMatrixWithSubMatrix(3,3)
-# print(b.content)
-
-# c=EmptyMatrix(4, 4)
-# print(c.content)
-# print(c.shape())
+            # the ":" is use to index the list: a=[x,y,z,v] --> a[0:1] = [x,y]
