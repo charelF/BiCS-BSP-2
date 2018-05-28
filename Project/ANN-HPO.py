@@ -10,8 +10,7 @@ from keras.layers import Dense, Dropout
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 
-import os
-os.chdir(os.path.realpath("Project"))
+
 
 
 # loading the data
@@ -114,23 +113,70 @@ parameters = {"dropout1":[True, False],
               "optimizer":['SGD', 'RMSprop', 'adam']}
 
 
-# creating the scikit_learn network from our Keras network and linking
-# the parameter dictionary to the network
-gridSearch = GridSearchCV(estimator=neuralNetwork,
-                          param_grid=parameters,
-                          scoring="accuracy",
-                          cv=3)  # cv = number of folds
+parameters1 = {"dropout1":[True, False],
+               "dropout2":[True, False],
+               "dropout3":[True, False],
+               "dropout4":[True, False]}
+
+parameters2 = {"dense1":[True, False],
+               "dense2":[True, False],
+               "dense3":[True, False],
+               "dense4":[True, False]}
+
+parameters3 = {"batch_size":[10, 30, 100, 300],
+               "epochs":[10, 30, 100, 300]}
+
+parameters4 = {"numNeurons0":[2000, 1000, 500],
+               "numNeurons1":[2000, 1000, 500]}
+
+parameters5 = {"numNeurons2":[500, 250, 100],
+               "numNeurons3":[100, 50, 25],
+               "numNeurons4":[25, 10, 5]}
+
+parameters6 = {"dropoutRate1":[0.0, 0.1, 0.2, 0.5, 0.7],
+               "dropoutRate2":[0.0, 0.1, 0.2, 0.5, 0.7]}
+
+parameters7 = {"activationInput":["relu", "tanh", "linear"],
+               "activation":["sigmoid", "relu", "softmax", "tanh", "linear"]}
+
+parameters8 = {"activationOutput":["sigmoid", "softmax", "tanh", "linear"],
+               "kernelInit":["uniform", "normal", "glorot_uniform", "he_uniform"]}
+
+parameters9 = {"optimizer":['SGD', 'RMSprop', 'adam']}
+
+allParams = [parameters1, parameters2, parameters3, parameters4, parameters5, parameters6, parameters7, parameters8, parameters9]
+
+bestParams = [{},{},{},{},{},{},{},{},{}]
 
 
-# starting the training process of the final network with the fit method
-gridSearch = gridSearch.fit(inputDataFlat, outputDataFlat, validation_split=0.2)
-# at this point, the network is being trained
+def gridSearchFunction(parameterDict):
+    gridSearch = GridSearchCV(estimator=neuralNetwork,
+                              param_grid=parameterDict,
+                              scoring="accuracy",
+                              cv=3)  # cv = number of folds
+
+    gridSearch = gridSearch.fit(inputDataFlat, outputDataFlat, validation_split=0.2)
+    return gridSearch.best_params_
+
+def findBest():
+    for i in allParams:
+        bestparameter = gridSearchFunction(i)
+        if bestParams[allParams.index(i)] == bestparameter:
+            print("this parameters is also uptodate")
+        else:
+            bestParams[allParams.index(i)] = bestparameter
+            print("the parameters has been updated")
+
+for i in range(4):
+    findBest()
 
 
-# when the network is finished training, we can read the best configuration
-# and the accuracy it reached
-bestParameters = gridSearch.best_params_
-bestAccuracy = gridSearch.best_score_
-print(bestParameters, bestAccuracy)
+
+
+
+
+# bestParameters = gridSearch.best_params_
+# bestAccuracy = gridSearch.best_score_
+# print(bestParameters, bestAccuracy)
 
 keepOpen=input("press enter to exit")

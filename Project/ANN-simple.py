@@ -32,12 +32,11 @@ except IndexError:
 #-------------------------------------------------------------------------------
 
 # [B-33 Reshape Dataset]
-# reshaping the inputData from (size, col, row) to (size, len), with
-# len being col*row
+# reshaping the inputData from (size, col, row) to (size, col*row)
 inputDataFlat = inputData.reshape(inputData.shape[0],
                                   inputData.shape[1]*inputData.shape[2])
 
-# reshaping the outputData from (size, col, row) to (size, len)
+# reshaping the outputData from (size, col, row) to (size, col*row)
 outputDataFlat = outputData.reshape(outputData.shape[0],
                                     outputData.shape[1]*outputData.shape[2])
 # we have now flattend our matrices by concatenating their rows.
@@ -49,19 +48,23 @@ outputDataFlat = outputData.reshape(outputData.shape[0],
 # initialised as Sequential model
 model = Sequential()
 
-# [B-33A: adding layers to the network]
+# [B-34A: adding layers to the network]
 
 # input layer
 model.add(Dense(units=1000, activation="relu", input_dim=inputDataFlat.shape[1]))
 
-model.add(Dropout(rate=0.3))  # dropout layer
+model.add(Dropout(rate=0.5))  # dropout layer
 
 model.add(Dense(units=250, activation="relu"))  # hidden layer
+
+model.add(Dropout(rate=0.5))  # dropout layer
+
+model.add(Dense(units=25, activation="relu"))  # hidden layer
 
 model.add(Dense(units=1, activation="sigmoid"))  # output layer
 
 
-# [B-33B: Compiling and fitting the network]
+# [B-34B: Compiling and fitting the network]
 
 model.compile(optimizer="adam",
               loss="binary_crossentropy",
@@ -70,7 +73,8 @@ model.compile(optimizer="adam",
 model.summary()  # summary of the network architecture
 
 # start of the training / fitting process
-model.fit(inputData, outputData, epochs=100, batch_size=32, validation_split=0.2)
+model.fit(inputDataFlat, outputDataFlat,
+          epochs=100, batch_size=32, validation_split=0.2)
 
 # this last method has started the training process, and when we execute it
 # and it is finished we will see the accuracy it reached on the dataset

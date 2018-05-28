@@ -9,27 +9,43 @@ import random   # module used to find random integers
 class Matrix:
     def __init__(self, column, row):
         self.content = np.zeros((column, row), dtype=np.int8)
+        # we initialize our Matrix class by creating a matrix of type numpy.ndarray,
+        # filling it with zeros and assigning the variable content to it.
 
     # [B-12A addBinaryNoise]
     def addBinaryNoise(self, noiseDensity, modifiedLocations):
-        """ The function addBinaryNoise ads and subtracts random values from
-            the matrix, but does not add new values: It replaces certain 1's
-            with 0's and vice versa, but does not add intermediary values.
+        """ The method addBinaryNoise creates a randomMatrix filled with a
+            customizable density of 1's and 0's. which is then added or subtracted
+            from parts of the main self.content matrix, depending on the choice
+            of modifiedLocations.
 
             Parameters
             ----------
             noiseDensity : int
-                Description of parameter `noiseDensity`.
-            modifiedLocations : type
-                Description of parameter `modifiedLocations`.
+                A positive integer describing the density of the noise to be added.
+                0 means no noise, 50 means noise is added to 50% of the values and
+                100 means noise is added to 100% of the values.
+                Adding noise to a value means that the value has a 50% chance of
+                changing from 0 to 1 or 1 to 0.
+
+            modifiedLocations : int
+                Possible arguments: 0, 1, 2.
+                0: noise applied to 0's of Matrix
+                1: noise applied to 1's of Matrix
+                2: noise applied to 0's and 1's of Matrix
 
             Returns
             -------
-            type
-                Description of returned object.
+            Does not return, but changes self.content
+
         """
 
-        randomMatrix = np.random.randint(low=0, high=(noiseDensity//2)+50,
+
+        intervalMin = max(int(50 * ((noiseDensity / 2) / 100)), 0)
+        intervalMax = 50 + intervalMin
+
+        randomMatrix = np.random.randint(low=intervalMin,
+                                         high=intervalMax,
                                          size=self.content.shape)
 
         randomMatrix = np.where(randomMatrix < 50, 0, randomMatrix)
@@ -47,7 +63,8 @@ class Matrix:
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 0, self.content)
 
-        return self.content
+        # return self.content
+        # not needed
 
 
 # [B-13 EmptyMatrix]
@@ -58,28 +75,21 @@ class EmptyMatrix(Matrix):
 # [B-14 FeatureMatrix]
 class FeatureMatrix(Matrix):
         def fillMatrixWithSubMatrix(self, columnSubMatrix, rowSubMatrix):
-            """ The function generates two matrices, namely the matrix M of size
-                column by row, and a SubMatrix of size columnSubMatrix by
-                rowSubMatrix. The matrix contains only 0's and the SubMatrix
-                contains only 1's. The SubMatrix is then placed at a random
-                position inside the matrix.
+            """ The method fillMatrixWithSubMatrix creates a submatrix of size
+                columnSubMatrix by rowSubMatrix containing only 1's, as opposed
+                to our main matrix which contains only 0's. The subMatrix
+                is then placed at a random position inside the main matrix
 
                 Parameters
                 ----------
-                column : int > 0
-                    column size of the matrix M.
-                row : int > 0
-                    row size of the matrix M.
-                columnSubMatrix : int >= 0, int =< column
+                columnSubMatrix : int
                     column size of the matrix SubMatrix.
-                rowSubMatrix : int >= 0, int <= columnSubMatrix
+                rowSubMatrix : int
                     row size of the matrix SubMatrix.
 
                 Returns
                 -------
-                numpy.ndarray
-                    Returns a matrix filled with 0's except for a random SubMatrix
-                    inside which is filled with 1's.
+                Does not return, but changes self.content
             """
 
             columnSubMatrix = min(self.content.shape[0], columnSubMatrix)
@@ -95,7 +105,7 @@ class FeatureMatrix(Matrix):
                          rowCoordinates:(rowCoordinates + rowSubMatrix)] = subMatrix
             # the ":" is use to index the list: a=[1,2,3,4] --> a[0:2] = [1,2,3]
 
-            return self.content
+            # return self.content
 
 # a=Matrix(30,30)
 # a.addBinaryNoise(166567,2)

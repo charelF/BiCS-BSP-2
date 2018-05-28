@@ -48,18 +48,35 @@ model = Sequential()
 # [B-44A: adding Convolutional and pooling layers]
 
 # input layer
-model.add(Conv2D(filters=32, kernel_size=(3, 3),
+model.add(Conv2D(filters=16, kernel_size=(3, 3),
                  input_shape = (inputDataShape[1], inputDataShape[2], 1),
                  activation = "relu"))
+# input shape (col, row, channel) -->
+#                    (col-(kernel_size[0]-1), row-(kernel_size[0]-1), filters)
+# ex: (64, 64, 1)  --> (62, 62, 16)
 
 model.add(MaxPooling2D(pool_size = (2, 2)))  # pooling step
+# input shape (col, row, filters) --> (col/2), row-/2), filters)
+# ex: (62, 62, 16) --> (31, 31, 16)
+
+model.add(Conv2D(filters=8, kernel_size=(3, 3), activation = "relu"))
+
+model.add(MaxPooling2D(pool_size = (2, 2)))
 
 model.add(Flatten()) # flatten layer
+# input shape (col, row, filters) --> output shape (col*row*filters)
+# ex: (31, 31, 32) --> (30752)
 
-
+model.add(Dropout(rate=0.6))
 # [B-44B: adding ANN layers such as Dense]
 
-model.add(Dense(units=64, activation="relu"))  # hidden layer
+model.add(Dense(units=256, activation="relu"))  # hidden layer
+
+model.add(Dropout(rate=0.5))
+
+model.add(Dense(units=32, activation="relu"))
+
+model.add(Dropout(rate=0.4))
 
 model.add(Dense(units=1, activation="sigmoid"))  # output layer
 
