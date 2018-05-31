@@ -53,11 +53,11 @@ model = Sequential()
 # input layer
 model.add(Dense(units=1000, activation="relu", input_dim=inputDataFlat.shape[1]))
 
-model.add(Dropout(rate=0.5))  # dropout layer
+model.add(Dropout(rate=0.6))  # dropout layer
 
 model.add(Dense(units=250, activation="relu"))  # hidden layer
 
-model.add(Dropout(rate=0.5))  # dropout layer
+model.add(Dropout(rate=0.6))  # dropout layer
 
 model.add(Dense(units=25, activation="relu"))  # hidden layer
 
