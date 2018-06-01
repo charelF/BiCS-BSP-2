@@ -1,0 +1,106 @@
+## Dataset Dimensions: (50, 1, 1)
+# Filename: test
+# Description: test dataset, not meant for training of NN.
+# MatrixParam: (10, 10)
+# SubMatrixParam: (5, 5)
+# NoiseParam: (30, 2)##
+# Entry number: 0
+0
+# Entry number: 1
+1
+# Entry number: 2
+0
+# Entry number: 3
+1
+# Entry number: 4
+0
+# Entry number: 5
+1
+# Entry number: 6
+0
+# Entry number: 7
+1
+# Entry number: 8
+0
+# Entry number: 9
+1
+# Entry number: 10
+0
+# Entry number: 11
+1
+# Entry number: 12
+0
+# Entry number: 13
+1
+# Entry number: 14
+0
+# Entry number: 15
+1
+# Entry number: 16
+0
+# Entry number: 17
+1
+# Entry number: 18
+0
+# Entry number: 19
+1
+# Entry number: 20
+0
+# Entry number: 21
+1
+# Entry number: 22
+0
+# Entry number: 23
+1
+# Entry number: 24
+0
+# Entry number: 25
+1
+# Entry number: 26
+0
+# Entry number: 27
+1
+# Entry number: 28
+0
+# Entry number: 29
+1
+# Entry number: 30
+0
+# Entry number: 31
+1
+# Entry number: 32
+0
+# Entry number: 33
+1
+# Entry number: 34
+0
+# Entry number: 35
+1
+# Entry number: 36
+0
+# Entry number: 37
+1
+# Entry number: 38
+0
+# Entry number: 39
+1
+# Entry number: 40
+0
+# Entry number: 41
+1
+# Entry number: 42
+0
+# Entry number: 43
+1
+# Entry number: 44
+0
+# Entry number: 45
+1
+# Entry number: 46
+0
+# Entry number: 47
+1
+# Entry number: 48
+0
+# Entry number: 49
+1

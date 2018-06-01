@@ -1,39 +1,53 @@
-# personal module imports
-import DatasetGenerator as dsg
-import numpy as np
-import glob
-
-
-# keras imports
-from keras.models import Sequential
+# Imports
+import DatasetGenerator as dsg  # we use the loadDataset function
+import numpy as np  # we use the reshape function from numpy
+import glob  # a python module to find files matching a specified pattern
+# keras and scikit imports
+from keras.models import Sequential  # we use the Sequential model
 from keras.layers import Dense, Dropout
 from keras.wrappers.scikit_learn import KerasClassifier
 from sklearn.model_selection import GridSearchCV
+# We explicily import each layer we use to have a more structured code
 
-
-
+#-------------------------------------------------------------------------------
 
 # loading the data
-inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
-outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+try:
+    # we use a try statememt as this section is prone to failling if
+    # no dataset has been created or can be found.
+    inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+    outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+    # we search for every file in our filepath that ends in "_input.txt"
+    # respectively "_output.txt"
+except IndexError:
+    try:
+        # first error source: in my case, sometimes the python script searched
+        # in the wrong directories
+        import os
+        os.chdir(os.path.realpath("Project"))
+        inputData = dsg.loadDataset(glob.glob("*_input.txt")[0])
+        outputData = dsg.loadDataset(glob.glob("*_output.txt")[0])
+    except IndexError:  # second error source
+        print("there are probably no datasets in the project folder")
 
+#-------------------------------------------------------------------------------
 
-# reshaping the 2D matrices (numpy.ndarray) into a 1D list (numpy.ndarray)
-# reshaping the inputData from (size, col, row) to (size, len), with
-# len being col*row and thus the lenght of the list
+# reshaping the inputData from (size, col, row) to (size, col*row)
 inputDataFlat = inputData.reshape(inputData.shape[0],
                                   inputData.shape[1]*inputData.shape[2])
 
-# reshaping the outputData from (size, col, row) to (size, len)
+# reshaping the outputData from (size, col, row) to (size, col*row)
 outputDataFlat = outputData.reshape(outputData.shape[0],
                                     outputData.shape[1]*outputData.shape[2])
+# we have now flattend our matrices by concatenating their rows.
 
+#-------------------------------------------------------------------------------
 
 # hyperparameter optimization
 # finding the ideal network structure, batch size and epoch amount
 
 # creating a function containing the neural network architecture
-def NNHPO(dropout1=True, dropout2=True, dropout3=False,dropout4=False,
+def neuralNetworkFunction(dropout1=True, dropout2=True, dropout3=False,dropout4=False,
           dense1=True, dense2=True, dense3=False, dense4=False, numNeurons0=2000,
           numNeurons1=1000, numNeurons2=250, numNeurons3=50, numNeurons4 = 10,
           dropoutRate1=0.2, dropoutRate2=0.2, dropoutRate3=0.2, dropoutRate4=0.2,
@@ -84,7 +98,7 @@ def NNHPO(dropout1=True, dropout2=True, dropout3=False,dropout4=False,
 
 # wrapping the keras neural network into a scikit_learn structure to implement
 # hyperparameter optimization
-neuralNetwork = KerasClassifier(build_fn=NNHPO)
+neuralNetworkSKwrap = KerasClassifier(build_fn=neuralNetworkFunction)
 
 
 # definining a parameters dictionary containing all to be tested values for
@@ -144,39 +158,17 @@ parameters8 = {"activationOutput":["sigmoid", "softmax", "tanh", "linear"],
 
 parameters9 = {"optimizer":['SGD', 'RMSprop', 'adam']}
 
-allParams = [parameters1, parameters2, parameters3, parameters4, parameters5, parameters6, parameters7, parameters8, parameters9]
-
-bestParams = [{},{},{},{},{},{},{},{},{}]
 
 
-def gridSearchFunction(parameterDict):
-    gridSearch = GridSearchCV(estimator=neuralNetwork,
-                              param_grid=parameterDict,
-                              scoring="accuracy",
-                              cv=3)  # cv = number of folds
+HPO = GridSearchCV(estimator=neuralNetworkSKwrap,
+                   param_grid=parameters1,
+                   scoring="accuracy",
+                   cv=3)  # cv = number of folds
 
-    gridSearch = gridSearch.fit(inputDataFlat, outputDataFlat, validation_split=0.2)
-    return gridSearch.best_params_
+HPO = HPO.fit(inputDataFlat, outputDataFlat, validation_split=0.2)
 
-def findBest():
-    for i in allParams:
-        bestparameter = gridSearchFunction(i)
-        if bestParams[allParams.index(i)] == bestparameter:
-            print("this parameters is also uptodate")
-        else:
-            bestParams[allParams.index(i)] = bestparameter
-            print("the parameters has been updated")
-
-for i in range(4):
-    findBest()
-
-
-
-
-
-
-# bestParameters = gridSearch.best_params_
-# bestAccuracy = gridSearch.best_score_
-# print(bestParameters, bestAccuracy)
+bestParameters = HPO.best_params_
+bestAccuracy = HPO.best_score_
+print(bestParameters, bestAccuracy)
 
 keepOpen=input("press enter to exit")
