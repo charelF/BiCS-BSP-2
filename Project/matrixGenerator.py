@@ -41,25 +41,57 @@ class Matrix:
         """
 
 
-        intervalMin = max(int(0.5 * (noiseDensity / 2)), 0)
-        intervalMax = 50 + intervalMin
 
-        randomMatrix = np.random.randint(low=intervalMin,
-                                         high=intervalMax,
+
+        intervalMin = 10*(50/((100/max(noiseDensity,1))+1))
+        intervalMax = 500+intervalMin
+        # the intervals are defined in a way such that if our interval is from 0
+        # to 100, 50 being the middle, then the noiseDensity percentage is the
+        # likelihood of a number being above or below 50
+
+        # ex: noiseDensity of 25 --> interval = 10 - 60, which means that a
+        # random value in that interval is 4 times as likely to be below 50 than
+        # above 50
+
+        # ex3: noiseDensity of 50 --> interval = 33-66, which means that a
+        # random value in that interval is 2 times as likely to be below 50 than
+        # above 50
+
+        # ex2: noiseDensity of 100 --> interval = 25-75, which means that a
+        # random value in that interval is as likely to be below 50 than
+        # above 50
+
+        # we also changed the interval from 0-100 to 0-1000 (and multiplied
+        # everything accordingly to have a higher precision when creating
+        # datasets)
+
+        randomMatrix = np.random.randint(low=int(intervalMin),
+                                         high=int(intervalMax),
                                          size=self.content.shape)
+        # we create a randomMatrix with random values in the specified
+        # interval and of the same shape as matrix.conent
 
-        randomMatrix = np.where(randomMatrix <= 50, 0, randomMatrix)
-        randomMatrix = np.where(randomMatrix > 50, 1, randomMatrix)
+        randomMatrix = np.where(randomMatrix <= 500, 0, randomMatrix)
+        randomMatrix = np.where(randomMatrix > 500, 1, randomMatrix)
+
+        # we make the noise binary (i.e. our randommatrix now contains only
+        # 1's and 0's)
 
         if modifiedLocations == 0:
+            # we only add noise to 0's, as we add the randomMatrix to
+            # matrix.content and change all values above 1 back to 1
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 1, self.content)
 
         elif modifiedLocations == 1:
+            # we only add noise to 1's, as we subtract the randomMatrix from
+            # matrix.content and change all values below 0 back to 0
             self.content -= randomMatrix
             self.content = np.where(self.content < 0, 0, self.content)
 
         elif modifiedLocations == 2:
+            # we add noise to 1's and 0's, as we add the randomMatrix to
+            # matrix.content and change all values above 1 to 0
             self.content += randomMatrix
             self.content = np.where(self.content > 1, 0, self.content)
 
@@ -96,8 +128,13 @@ class FeatureMatrix(Matrix):
 
 
             subMatrix = np.ones((columnSubMatrix, rowSubMatrix), dtype=np.int8)
+            # the submatrix contains only 1's
+
             columnCoordinates = random.randint(0, self.content.shape[0] - columnSubMatrix)
             rowCoordinates = random.randint(0, self.content.shape[1] - rowSubMatrix)
+            # we choose random Col and Row Coordinates with the limitation that
+            # placing our submatrix inside the matrix.content at these coordinates
+            # will not cut any parts off the submatrix and it will fit completely inside
 
             self.content[columnCoordinates:(columnCoordinates + columnSubMatrix),
                          rowCoordinates:(rowCoordinates + rowSubMatrix)] = subMatrix

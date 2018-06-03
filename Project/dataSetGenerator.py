@@ -77,6 +77,8 @@ def createDataset(size, filename, description, matrixParam, subMatrixParam, nois
         for i in range(size):
             file.write("# Entry number: {}\n".format(i))
             np.savetxt(file, np.array([i%2]) , fmt="%1u")
+            # we save an array containing alternatively 1 or 0 to our output
+            # dataset
 
 
 
